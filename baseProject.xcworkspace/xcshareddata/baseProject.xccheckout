@@ -10,22 +10,26 @@
 	<string>baseProject</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>7647583C9F21C95BBE9F6C3B89263887A1EB95CF</key>
+		<string>https://github.com/Tiger83Zhang/Output.git</string>
 		<key>E55F4174B1C63B3F90D9D9805FC1BAABAE543AD7</key>
 		<string>https://github.com/dxl22892528/project1.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>食2/IOS/京元-1/baseProject.xcworkspace</string>
+	<string>baseProject.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>7647583C9F21C95BBE9F6C3B89263887A1EB95CF</key>
+		<string>..</string>
 		<key>E55F4174B1C63B3F90D9D9805FC1BAABAE543AD7</key>
-		<string>../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/dxl22892528/project1.git</string>
+	<string>https://github.com/Tiger83Zhang/Output.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E55F4174B1C63B3F90D9D9805FC1BAABAE543AD7</string>
+	<string>7647583C9F21C95BBE9F6C3B89263887A1EB95CF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -34,7 +38,15 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>E55F4174B1C63B3F90D9D9805FC1BAABAE543AD7</string>
 			<key>IDESourceControlWCCName</key>
-			<string>tyunsync</string>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7647583C9F21C95BBE9F6C3B89263887A1EB95CF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Output</string>
 		</dict>
 	</array>
 </dict>

@@ -1281,6 +1281,7 @@
 		3048E0E2832A63D5311D0359 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		988D7EE634598AAAEF1E69B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AF1A39AD206EAE29C573282E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEF1BA9E1BCE545F00C2BFB4 /* requirementDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requirementDoc.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1908,6 +1909,7 @@
 		0A70DE191A36CBC3000FE0F9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FEF1BA9E1BCE545F00C2BFB4 /* requirementDoc.h */,
 				0A70DE1A1A36CBC3000FE0F9 /* Info.plist */,
 				0A70DE1B1A36CBC3000FE0F9 /* main.m */,
 				0A145B7F1A36D3A0007605EA /* baseProject-Prefix.pch */,
