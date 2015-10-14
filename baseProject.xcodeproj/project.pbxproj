@@ -571,6 +571,7 @@
 		0B3256FF1B243A4E00878319 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3256FE1B243A4E00878319 /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0BB948501AFB65F500882AAD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB9484F1AFB65F500882AAD /* AudioToolbox.framework */; };
 		0BB948551AFCA5CC00882AAD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB948521AFCA5CC00882AAD /* libMobClickLibrary.a */; };
+		FEFD79141BCEA20E009C2584 /* 1015工作安排.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1282,6 +1283,7 @@
 		988D7EE634598AAAEF1E69B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AF1A39AD206EAE29C573282E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF1BA9E1BCE545F00C2BFB4 /* requirementDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requirementDoc.h; sourceTree = "<group>"; };
+		FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1015工作安排.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1909,6 +1911,7 @@
 		0A70DE191A36CBC3000FE0F9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FEFD79121BCEA1FC009C2584 /* timesheet */,
 				FEF1BA9E1BCE545F00C2BFB4 /* requirementDoc.h */,
 				0A70DE1A1A36CBC3000FE0F9 /* Info.plist */,
 				0A70DE1B1A36CBC3000FE0F9 /* main.m */,
@@ -2357,6 +2360,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FEFD79121BCEA1FC009C2584 /* timesheet */ = {
+			isa = PBXGroup;
+			children = (
+				FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */,
+			);
+			name = timesheet;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2604,6 +2615,7 @@
 				0AAF70171ABAD5640022FA3C /* 03_5-下单_使用优惠券按钮@3x.png in Resources */,
 				0A13E1631A8353ED002A7BE6 /* OrderTableViewCell.xib in Resources */,
 				0ADE41211A66436C007124CB /* 05-优惠多套餐_顶栏切换2.png in Resources */,
+				FEFD79141BCEA20E009C2584 /* 1015工作安排.txt in Resources */,
 				0A4ED8DA1A6526FB00E5CED6 /* 03_7-付款_余额付款@2x.png in Resources */,
 				0A45C77C1AB2ABB700CDFA3D /* GAME@2x.png in Resources */,
 				0A145BB41A36F0D5007605EA /* blueArrow@2x.png in Resources */,

@@ -22,7 +22,7 @@
 		<key>7647583C9F21C95BBE9F6C3B89263887A1EB95CF</key>
 		<string>..</string>
 		<key>E55F4174B1C63B3F90D9D9805FC1BAABAE543AD7</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/Tiger83Zhang/Output.git</string>
@@ -38,7 +38,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>E55F4174B1C63B3F90D9D9805FC1BAABAE543AD7</string>
 			<key>IDESourceControlWCCName</key>
-			<string>..</string>
+			<string></string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
