@@ -571,21 +571,13 @@
 		0B3256FF1B243A4E00878319 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3256FE1B243A4E00878319 /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0BB948501AFB65F500882AAD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB9484F1AFB65F500882AAD /* AudioToolbox.framework */; };
 		0BB948551AFCA5CC00882AAD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB948521AFCA5CC00882AAD /* libMobClickLibrary.a */; };
-<<<<<<< HEAD
 		9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */; };
 		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; };
 		9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */; };
 		9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */; };
 		FED4CBBD1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */; };
 		FED4CBBF1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBE1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png */; };
-=======
-		9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */; settings = {ASSET_TAGS = (); }; };
-		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; settings = {ASSET_TAGS = (); }; };
-		9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */; settings = {ASSET_TAGS = (); }; };
-		9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */; settings = {ASSET_TAGS = (); }; };
-		9BE424CB1BCF8D2400174C33 /* 03_7-付款_劵@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE424CA1BCF8D2400174C33 /* 03_7-付款_劵@2x.png */; settings = {ASSET_TAGS = (); }; };
-		9BE424CD1BCF8D4800174C33 /* 03_7-付款_劵@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE424CC1BCF8D4800174C33 /* 03_7-付款_劵@3x.png */; settings = {ASSET_TAGS = (); }; };
->>>>>>> origin/master
+
 		FEFD79141BCEA20E009C2584 /* 1015工作安排.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */; };
 /* End PBXBuildFile section */
 
