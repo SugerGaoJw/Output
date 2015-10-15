@@ -571,6 +571,7 @@
 		0B3256FF1B243A4E00878319 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3256FE1B243A4E00878319 /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0BB948501AFB65F500882AAD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB9484F1AFB65F500882AAD /* AudioToolbox.framework */; };
 		0BB948551AFCA5CC00882AAD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB948521AFCA5CC00882AAD /* libMobClickLibrary.a */; };
+		9BC517061BCFE74C00D9699D /* 03_7-劵@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC517051BCFE74C00D9699D /* 03_7-劵@2x.png */; settings = {ASSET_TAGS = (); }; };
 		9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */; };
 		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; };
 		9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */; };
@@ -1289,12 +1290,12 @@
 		0BB948541AFCA5CC00882AAD /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		3048E0E2832A63D5311D0359 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		988D7EE634598AAAEF1E69B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9BC517051BCFE74C00D9699D /* 03_7-劵@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-劵@2x.png"; sourceTree = "<group>"; };
 		9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@2x.png"; sourceTree = "<group>"; };
 		9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@3x.png"; sourceTree = "<group>"; };
 		9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-arrow@2x.png"; sourceTree = "<group>"; };
 		9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-arrow@3x.png"; sourceTree = "<group>"; };
-		9BE424CA1BCF8D2400174C33 /* 03_7-付款_劵@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-付款_劵@2x.png"; sourceTree = "<group>"; };
-		9BE424CC1BCF8D4800174C33 /* 03_7-付款_劵@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-付款_劵@3x.png"; sourceTree = "<group>"; };
+		9BE424CC1BCF8D4800174C33 /* 03_7-劵@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-劵@3x.png"; sourceTree = "<group>"; };
 		AF1A39AD206EAE29C573282E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-摇一摇_分享@2x.png"; sourceTree = "<group>"; };
 		FED4CBBE1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-摇一摇_分享@3x.png"; sourceTree = "<group>"; };
@@ -1505,10 +1506,15 @@
 		0A663D981A5BA804007BBB0F /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				FEF2E1E61BCFF73100E624C1 /* 个人中心头像@2x.png */,
 				FEF2E1E81BCFF76E00E624C1 /* 个人中心头像@3x.png */,
 				9BE424CC1BCF8D4800174C33 /* 03_7-付款_劵@3x.png */,
 				9BE424CA1BCF8D2400174C33 /* 03_7-付款_劵@2x.png */,
+=======
+				9BC517051BCFE74C00D9699D /* 03_7-劵@2x.png */,
+				9BE424CC1BCF8D4800174C33 /* 03_7-劵@3x.png */,
+>>>>>>> origin/master
 				0AAB0E051AB84F3300D386F3 /* 复选框.png */,
 				0AAB0E061AB84F3300D386F3 /* 复选框@2x.png */,
 				0AAB0E071AB84F3300D386F3 /* 复选框@3x.png */,
@@ -2593,6 +2599,7 @@
 				0A4ED8861A65166100E5CED6 /* MessageViewController.xib in Resources */,
 				0ADE41321A6651A6007124CB /* 05-优惠多套餐_顶栏切换选中1@2x.png in Resources */,
 				0A663EA01A5E819F007BBB0F /* 06-摇一摇_背景@2x.png in Resources */,
+				9BC517061BCFE74C00D9699D /* 03_7-劵@2x.png in Resources */,
 				0A663DDB1A5BA804007BBB0F /* 08_1-个人中心_账户充值.png in Resources */,
 				0A663DED1A5BAC05007BBB0F /* nav_chat@3x.png in Resources */,
 				0ABED6EC1A56CD4900F93AE7 /* 02-注册_获取验证码常态@2x.png in Resources */,
