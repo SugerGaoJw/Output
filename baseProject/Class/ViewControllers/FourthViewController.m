@@ -48,8 +48,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    _titleArr = @[@[@"我的优惠券", @"我的积分", @"账户充值"], @[@"关于食卜", @"食卜客服中心", @"网点查询"]];
-    _imgArr = @[@[@"08_1-个人中心_优惠券.png", @"08_1-个人中心_我的积分.png", @"08_1-个人中心_账户充值.png"], @[@"08_1-个人中心——关于京元.png", @"08_1-个人中心_京元客服中心.png", @"08_1-个人中心——网店查询.png"]];
+    _titleArr = @[@[@"我的优惠券", @"我的积分", @"账户充值"], @[@"关于食卜", @"食卜客服中心"]];
+    _imgArr = @[@[@"08_1-个人中心_优惠券.png", @"08_1-个人中心_我的积分.png", @"08_1-个人中心_账户充值.png"], @[@"08_1-个人中心——关于京元.png", @"08_1-个人中心_京元客服中心.png"]];
     
     _tableView.tableHeaderView = _headerView;
     _tableView.sectionFooterHeight = 1.0;

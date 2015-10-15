@@ -10,6 +10,7 @@
 #import "MessageViewController.h"
 #import "GiftViewController.h"
 #import "OrderViewController.h"
+#import "MeshPointInquiryViewController.h"
 
 @interface ThirdViewController () {
     NSArray *_imgArr;
@@ -41,7 +42,7 @@
     self.navigationItem.title = @"优+";
     
     _titleArr = [[NSMutableArray alloc] initWithObjects:@[@"果蔬配送", @"礼品中心"], nil];
-    _imgArr = @[@[@"07-优+_果蔬配送.png", @"07-优+_优惠券.png"], @[@"GAME.png"]];
+    _imgArr = @[@[@"07-优+_果蔬配送.png", @"07-优+_优惠券.png"], @[@"08_1-个人中心——网店查询.png"]];
     
     _tableView.sectionFooterHeight = 1.0;
     
@@ -86,7 +87,7 @@
     NSInteger row = indexPath.row;
     
     if (sec == 1) {
-        SVWebViewController *vc = [[SVWebViewController alloc] initWithAddress:_gameURL];
+        MeshPointInquiryViewController *vc = [[MeshPointInquiryViewController alloc] initWithNibName:@"MeshPointInquiryViewController" bundle:nil];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }

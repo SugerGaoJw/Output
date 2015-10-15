@@ -27,8 +27,8 @@
     self.title = @"摇一摇";
     
     _canShake = YES;
+    [self setRBtn:nil image:@"06-摇一摇_分享" imageSel:nil target:self action:@selector(shareSth)];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -43,7 +43,17 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+#pragma mark - share
+- (void)shareSth
+{
+    NSString *message = @"分享";
+    NSArray *arrayOfActivityItems = [NSArray arrayWithObjects:message, nil];
+    
+    // 显示view controller
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+                                            initWithActivityItems: arrayOfActivityItems applicationActivities:nil];
+    [self presentViewController:activityVC animated:YES completion:Nil];
+}
 #pragma mark -
 #pragma mark yaoyiyao
 - (BOOL)canBecomeFirstResponder {
