@@ -41,12 +41,12 @@
     
     self.navigationItem.title = @"优+";
     
-    _titleArr = [[NSMutableArray alloc] initWithObjects:@[@"果蔬配送", @"礼品中心"], nil];
+    _titleArr = [[NSMutableArray alloc] initWithObjects:@[@"果蔬配送", @"礼品中心"], @[@"网店查询"],nil];
     _imgArr = @[@[@"07-优+_果蔬配送.png", @"07-优+_优惠券.png"], @[@"08_1-个人中心——网店查询.png"]];
     
     _tableView.sectionFooterHeight = 1.0;
     
-    [self getData];
+//    [self getData];
 }
 
 - (void)rightBtnClick {

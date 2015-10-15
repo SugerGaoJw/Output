@@ -37,8 +37,8 @@
     if (self) {
         // Custom initialization
         self.title = @"我的";
-        [self setLBtn:nil image:@"设置.png" imageSel:nil target:self action:@selector(leftBtnClick)];
-        [self setRBtn:nil image:@"nav_chat.png" imageSel:nil target:self action:@selector(rightBtnClick)];
+        [self setLBtn:nil image:@"nav_chat.png" imageSel:nil target:self action:@selector(rightBtnClick)];
+        [self setRBtn:nil image:@"设置.png" imageSel:nil target:self action:@selector(leftBtnClick)];
     }
     return self;
 }

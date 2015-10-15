@@ -50,7 +50,7 @@
     [self.window setRootViewController:self.viewController];
     [self.window makeKeyAndVisible];
 
-    [PublicInstance instance].isLogin = YES;
+//    [PublicInstance instance].isLogin = YES;
     
     return YES;
 }

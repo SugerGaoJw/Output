@@ -577,6 +577,8 @@
 		9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */; };
 		FED4CBBD1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */; };
 		FED4CBBF1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBE1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png */; };
+		FEF2E1E71BCFF73100E624C1 /* 个人中心头像@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEF2E1E61BCFF73100E624C1 /* 个人中心头像@2x.png */; };
+		FEF2E1E91BCFF76E00E624C1 /* 个人中心头像@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FEF2E1E81BCFF76E00E624C1 /* 个人中心头像@3x.png */; };
 		FEFD79141BCEA20E009C2584 /* 1015工作安排.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */; };
 /* End PBXBuildFile section */
 
@@ -1297,6 +1299,8 @@
 		FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-摇一摇_分享@2x.png"; sourceTree = "<group>"; };
 		FED4CBBE1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-摇一摇_分享@3x.png"; sourceTree = "<group>"; };
 		FEF1BA9E1BCE545F00C2BFB4 /* requirementDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requirementDoc.h; sourceTree = "<group>"; };
+		FEF2E1E61BCFF73100E624C1 /* 个人中心头像@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人中心头像@2x.png"; sourceTree = "<group>"; };
+		FEF2E1E81BCFF76E00E624C1 /* 个人中心头像@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "个人中心头像@3x.png"; sourceTree = "<group>"; };
 		FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1015工作安排.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1501,6 +1505,8 @@
 		0A663D981A5BA804007BBB0F /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				FEF2E1E61BCFF73100E624C1 /* 个人中心头像@2x.png */,
+				FEF2E1E81BCFF76E00E624C1 /* 个人中心头像@3x.png */,
 				9BE424CC1BCF8D4800174C33 /* 03_7-付款_劵@3x.png */,
 				9BE424CA1BCF8D2400174C33 /* 03_7-付款_劵@2x.png */,
 				0AAB0E051AB84F3300D386F3 /* 复选框.png */,
@@ -2492,6 +2498,7 @@
 				0A4ED89F1A6522D700E5CED6 /* 08_14-网点详情_背景@3x.png in Resources */,
 				0A4ED8711A65160E00E5CED6 /* 09_1-消息中心_付款失败@2x.png in Resources */,
 				0A663DDD1A5BA804007BBB0F /* 08_1-个人中心_账户充值@3x.png in Resources */,
+				FEF2E1E91BCFF76E00E624C1 /* 个人中心头像@3x.png in Resources */,
 				0ABED6DE1A56C01C00F93AE7 /* 02-登录_登录按钮点击态@3x.png in Resources */,
 				0AA8E9DC1A52E1C50016198A /* tbNormal1@2x.png in Resources */,
 				0AA8E9DF1A52E1C50016198A /* tbNormal2@2x.png in Resources */,
@@ -2651,6 +2658,7 @@
 				0A13E1761A84E9AD002A7BE6 /* 03_2-点餐_菜品详细背景@2x.png in Resources */,
 				0A13E19D1A84F060002A7BE6 /* 04_3-订单详情_付款点击态@2x.png in Resources */,
 				0A4ED8CD1A6526FB00E5CED6 /* 03_7-付款_现金付款.png in Resources */,
+				FEF2E1E71BCFF73100E624C1 /* 个人中心头像@2x.png in Resources */,
 				0ADE41811A67DB2E007124CB /* 05-优惠多套餐_下单点击态@2x.png in Resources */,
 				0ADE41A61A67DEAA007124CB /* 07_2-礼品中心_取消按钮点击态@2x.png in Resources */,
 				0ABED6F11A56CD4900F93AE7 /* 02-注册_注册常态.png in Resources */,
