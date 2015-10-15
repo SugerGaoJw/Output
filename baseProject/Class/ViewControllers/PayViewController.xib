@@ -71,12 +71,12 @@
                     <animations/>
                 </imageView>
                 <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="22H-X8-7ba">
-                    <rect key="frame" x="0.0" y="350" width="320" height="40"/>
+                    <rect key="frame" x="0.0" y="345" width="320" height="50"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="   我的优惠劵" image="03_7-付款_劵.png" backgroundImage="列表框-独立.png">
+                    <state key="normal" title="   我的优惠劵" image="03_7-劵.png" backgroundImage="列表框-独立.png">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -246,7 +246,6 @@
         </view>
     </objects>
     <resources>
-        <image name="03_7-付款_劵.png" width="34" height="34"/>
         <image name="03_7-付款_微信付款.png" width="29" height="29"/>
         <image name="03_7-付款_支付宝付款.png" width="29" height="29"/>
         <image name="03_7-付款_现金付款.png" width="29" height="29"/>
@@ -255,6 +254,7 @@
         <image name="03_7-付款_选中按钮常态.png" width="15" height="15"/>
         <image name="03_7-付款_选中按钮选中态.png" width="15" height="15"/>
         <image name="03_7-付款_银行卡付款.png" width="29" height="29"/>
+        <image name="03_7-劵.png" width="34" height="34"/>
         <image name="line.png" width="1" height="1"/>
         <image name="列表框-上.png" width="320" height="51"/>
         <image name="列表框-下.png" width="320" height="50"/>

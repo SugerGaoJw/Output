@@ -50,12 +50,33 @@
     _statisticScrollView = statisticScrollView;
     _statisticScrollView.contentSize = CGSizeMake(__MainScreen_Width, 90);
 }
-- (void)setGoodsLabel:(UILabel *)goodsLabel {
-    _goodsLabel = goodsLabel;
+
+
+#pragma mark - Calculate Interface 
+//计算菜品名字
+- (void)calGoodsNames {
+    NSMutableString* mStr = [[NSMutableString alloc]init];
+    __block NSString* str = nil;
+    [self.dataSource enumerateObjectsUsingBlock:^(id  obj, NSUInteger idx, BOOL * stop) {
+        str = [obj valueForKey:@"foodsName"];
+        [mStr appendString:str];
+        [mStr appendString:@"+"];
+    }];
+    
+    if (mStr.length <= 1) {
+        DLog(@"mStr is null");
+        return;
+    }
+    NSString* curStr = [mStr substringWithRange:NSMakeRange(0, mStr.length - 1)];
+    [self setGoodsLabelValue:curStr];
+}
+//动态计算label宽高
+- (void)setGoodsLabelValue:(NSString *)value {
+    
     [_goodsLabel setNumberOfLines:0];
     _goodsLabel.lineBreakMode = NSLineBreakByCharWrapping;
     // 测试字串
-    NSString *s = @"这是一个测试！！！adsfsaf时发生发勿忘我勿忘我勿忘我勿忘我勿忘我阿阿阿阿阿阿阿阿阿阿阿阿阿啊00000000阿什顿。。。";
+    NSString *s = value;
     UIFont *font = [UIFont fontWithName:@"Arial" size:15];
     //设置一个行高上限
     CGSize size = CGSizeMake(__MainScreen_Width,2000);
@@ -63,13 +84,16 @@
     CGSize labelsize =  [s sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByCharWrapping];
     _goodsLabelRect = CGRectMake(8, 0, labelsize.width - 8, labelsize.height + 3);
     [_goodsLabel setFrame:_goodsLabelRect];
-    _goodsLabel.text = s;
+    _goodsLabel.text = value;
+    //计算滚动视图
+    size = CGSizeMake(_goodsLabelRect.size.width, _goodsLabelRect.size.height);
+    [self setGoodsScrollViewContentSize:size];
 }
-- (void)setGoodsScrollView:(UIScrollView *)goodsScrollView {
-    _goodsScrollView = goodsScrollView;
-    CGSize size = CGSizeMake(_goodsLabelRect.size.width, _goodsLabelRect.size.height);
-    [_goodsScrollView setContentSize:size];
+//动态计算scrollView 宽高
+- (void)setGoodsScrollViewContentSize:(CGSize)szie {
+    [_goodsScrollView setContentSize:szie];
 }
+
 - (IBAction)payChannelBtnClick:(UIButton *)sender {
     for (int i=10; i<15; i++) {
         UIImageView *img = (UIImageView *)[self.view viewWithTag:i];
@@ -156,7 +180,7 @@
     }
 
     NSMutableArray *arr = [NSMutableArray array];
-
+    
     NSString *_pkId = @"pkId";
     if (self.dataSource.count) {
         NSDictionary *dic = [self.dataSource objectAtIndex:0];
@@ -180,7 +204,6 @@
                 }
                 
                 [arr addObject:dic0];
-
                 *stop = YES;
             }
         }];
