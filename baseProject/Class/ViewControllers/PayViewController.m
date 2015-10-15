@@ -12,8 +12,14 @@
 
 @interface PayViewController () {
     NSString *_pwd;
+    CGRect _goodsLabelRect; //当前菜品标签视图大小
 }
-
+//统计滚动视图
+@property (weak, nonatomic) IBOutlet UIScrollView *statisticScrollView;
+//菜品的滚动视图
+@property (weak, nonatomic) IBOutlet UIScrollView *goodsScrollView;
+//菜品标签视图
+@property (weak, nonatomic) IBOutlet UILabel *goodsLabel;
 @end
 
 @implementation PayViewController
@@ -21,7 +27,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
     self.title = @"支付";
     
     _priceLbl.text = [NSString stringWithFormat:@"%.1f" , [_price floatValue]];
@@ -39,16 +44,32 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - ScrollView Size
+    //设置统计视图实际宽高
+- (void)setStatisticScrollView:(UIScrollView *)statisticScrollView {
+    _statisticScrollView = statisticScrollView;
+    _statisticScrollView.contentSize = CGSizeMake(__MainScreen_Width, 90);
 }
-*/
-
+- (void)setGoodsLabel:(UILabel *)goodsLabel {
+    _goodsLabel = goodsLabel;
+    [_goodsLabel setNumberOfLines:0];
+    _goodsLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    // 测试字串
+    NSString *s = @"这是一个测试！！！adsfsaf时发生发勿忘我勿忘我勿忘我勿忘我勿忘我阿阿阿阿阿阿阿阿阿阿阿阿阿啊00000000阿什顿。。。";
+    UIFont *font = [UIFont fontWithName:@"Arial" size:15];
+    //设置一个行高上限
+    CGSize size = CGSizeMake(__MainScreen_Width,2000);
+    //计算实际frame大小，并将label的frame变成实际大小
+    CGSize labelsize =  [s sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByCharWrapping];
+    _goodsLabelRect = CGRectMake(8, 0, labelsize.width - 8, labelsize.height + 3);
+    [_goodsLabel setFrame:_goodsLabelRect];
+    _goodsLabel.text = s;
+}
+- (void)setGoodsScrollView:(UIScrollView *)goodsScrollView {
+    _goodsScrollView = goodsScrollView;
+    CGSize size = CGSizeMake(_goodsLabelRect.size.width, _goodsLabelRect.size.height);
+    [_goodsScrollView setContentSize:size];
+}
 - (IBAction)payChannelBtnClick:(UIButton *)sender {
     for (int i=10; i<15; i++) {
         UIImageView *img = (UIImageView *)[self.view viewWithTag:i];
@@ -112,6 +133,7 @@
 }
 
 - (void)postData {
+    
     [SVProgressHUD show];
     NSMutableDictionary *dic = [self creatRequestDic];
     [dic setObject:[NSString stringWithFormat:@"%@", _addressId] forKey:@"addressId"];
@@ -152,7 +174,7 @@
                 [dic0 setObject:[_numDic objectForKey:row] forKey:@"number"];
                 [dic0 setObject:pkid forKey:@"foodsId"];
                 
-                NSDictionary *coupon = [_couponDic objectForKey:[NSString stringWithFormat:@"%d", idx]];
+                NSDictionary *coupon = [_couponDic objectForKey:[NSString stringWithFormat:@"%lu", (unsigned long)idx]];
                 if (coupon) {
                     [dic0 setObject:[coupon objectForKey:@"mcPkId"] forKey:@"couponId"];
                 }

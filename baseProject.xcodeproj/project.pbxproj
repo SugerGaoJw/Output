@@ -571,12 +571,21 @@
 		0B3256FF1B243A4E00878319 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3256FE1B243A4E00878319 /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0BB948501AFB65F500882AAD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB9484F1AFB65F500882AAD /* AudioToolbox.framework */; };
 		0BB948551AFCA5CC00882AAD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB948521AFCA5CC00882AAD /* libMobClickLibrary.a */; };
+<<<<<<< HEAD
 		9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */; };
 		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; };
 		9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */; };
 		9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */; };
 		FED4CBBD1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */; };
 		FED4CBBF1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBE1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png */; };
+=======
+		9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */; settings = {ASSET_TAGS = (); }; };
+		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; settings = {ASSET_TAGS = (); }; };
+		9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */; settings = {ASSET_TAGS = (); }; };
+		9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */; settings = {ASSET_TAGS = (); }; };
+		9BE424CB1BCF8D2400174C33 /* 03_7-付款_劵@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE424CA1BCF8D2400174C33 /* 03_7-付款_劵@2x.png */; settings = {ASSET_TAGS = (); }; };
+		9BE424CD1BCF8D4800174C33 /* 03_7-付款_劵@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BE424CC1BCF8D4800174C33 /* 03_7-付款_劵@3x.png */; settings = {ASSET_TAGS = (); }; };
+>>>>>>> origin/master
 		FEFD79141BCEA20E009C2584 /* 1015工作安排.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */; };
 /* End PBXBuildFile section */
 
@@ -1291,6 +1300,8 @@
 		9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@3x.png"; sourceTree = "<group>"; };
 		9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-arrow@2x.png"; sourceTree = "<group>"; };
 		9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-arrow@3x.png"; sourceTree = "<group>"; };
+		9BE424CA1BCF8D2400174C33 /* 03_7-付款_劵@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-付款_劵@2x.png"; sourceTree = "<group>"; };
+		9BE424CC1BCF8D4800174C33 /* 03_7-付款_劵@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-付款_劵@3x.png"; sourceTree = "<group>"; };
 		AF1A39AD206EAE29C573282E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-摇一摇_分享@2x.png"; sourceTree = "<group>"; };
 		FED4CBBE1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-摇一摇_分享@3x.png"; sourceTree = "<group>"; };
@@ -1499,6 +1510,8 @@
 		0A663D981A5BA804007BBB0F /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				9BE424CC1BCF8D4800174C33 /* 03_7-付款_劵@3x.png */,
+				9BE424CA1BCF8D2400174C33 /* 03_7-付款_劵@2x.png */,
 				0AAB0E051AB84F3300D386F3 /* 复选框.png */,
 				0AAB0E061AB84F3300D386F3 /* 复选框@2x.png */,
 				0AAB0E071AB84F3300D386F3 /* 复选框@3x.png */,
@@ -2535,6 +2548,7 @@
 				0A4ED88B1A651D7A00E5CED6 /* MessageTableViewCell.xib in Resources */,
 				0A71A0A11A52843200C277A2 /* 列表框-中@3x.png in Resources */,
 				0ABED6F21A56CD4900F93AE7 /* 02-注册_注册常态@2x.png in Resources */,
+				9BE424CD1BCF8D4800174C33 /* 03_7-付款_劵@3x.png in Resources */,
 				0AA8E9BE1A52E1C50016198A /* nav_add@3x.png in Resources */,
 				0ADE417F1A67DB2E007124CB /* 05-优惠多套餐_下单常态@3x.png in Resources */,
 				0A2E47A51AB807FC00C24A67 /* 关闭按钮点击态.png in Resources */,
@@ -2717,6 +2731,7 @@
 				0ABED74A1A59290C00F93AE7 /* 04_2-全部订单_付款按钮点击态.png in Resources */,
 				0A663DC51A5BA804007BBB0F /* 08_1-个人中心_优惠券@3x.png in Resources */,
 				0A13E17B1A84E9AD002A7BE6 /* 03_2-点餐_菜品详细确认按钮.png in Resources */,
+				9BE424CB1BCF8D2400174C33 /* 03_7-付款_劵@2x.png in Resources */,
 				0A4ED8801A65160E00E5CED6 /* 09_1-消息中心_背景@2x.png in Resources */,
 				0A13E1501A83491B002A7BE6 /* 03_2 点餐_减少按钮.png in Resources */,
 				0A663DC81A5BA804007BBB0F /* 08_1-个人中心_外面订单@3x.png in Resources */,
@@ -3072,6 +3087,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3114,6 +3130,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3138,6 +3155,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 亮 陈 (VY8WWR98Z2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 亮 陈 (VY8WWR98Z2)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3170,6 +3188,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 亮 陈 (VY8WWR98Z2)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
