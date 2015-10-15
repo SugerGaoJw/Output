@@ -1506,15 +1506,10 @@
 		0A663D981A5BA804007BBB0F /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				FEF2E1E61BCFF73100E624C1 /* 个人中心头像@2x.png */,
 				FEF2E1E81BCFF76E00E624C1 /* 个人中心头像@3x.png */,
-				9BE424CC1BCF8D4800174C33 /* 03_7-付款_劵@3x.png */,
-				9BE424CA1BCF8D2400174C33 /* 03_7-付款_劵@2x.png */,
-=======
 				9BC517051BCFE74C00D9699D /* 03_7-劵@2x.png */,
 				9BE424CC1BCF8D4800174C33 /* 03_7-劵@3x.png */,
->>>>>>> origin/master
 				0AAB0E051AB84F3300D386F3 /* 复选框.png */,
 				0AAB0E061AB84F3300D386F3 /* 复选框@2x.png */,
 				0AAB0E071AB84F3300D386F3 /* 复选框@3x.png */,
