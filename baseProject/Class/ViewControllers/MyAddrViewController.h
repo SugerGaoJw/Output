@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+/*!
+ *  送餐地址管理类
+ */
 @interface MyAddrViewController : BaseViewController <CWRefreshTableViewDelegate> {
     
 }

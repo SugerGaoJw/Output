@@ -571,6 +571,10 @@
 		0B3256FF1B243A4E00878319 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3256FE1B243A4E00878319 /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0BB948501AFB65F500882AAD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB9484F1AFB65F500882AAD /* AudioToolbox.framework */; };
 		0BB948551AFCA5CC00882AAD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB948521AFCA5CC00882AAD /* libMobClickLibrary.a */; };
+		9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */; settings = {ASSET_TAGS = (); }; };
+		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; settings = {ASSET_TAGS = (); }; };
+		9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */; settings = {ASSET_TAGS = (); }; };
+		9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */; settings = {ASSET_TAGS = (); }; };
 		FEFD79141BCEA20E009C2584 /* 1015工作安排.txt in Resources */ = {isa = PBXBuildFile; fileRef = FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */; };
 /* End PBXBuildFile section */
 
@@ -1281,6 +1285,10 @@
 		0BB948541AFCA5CC00882AAD /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		3048E0E2832A63D5311D0359 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		988D7EE634598AAAEF1E69B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@2x.png"; sourceTree = "<group>"; };
+		9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@3x.png"; sourceTree = "<group>"; };
+		9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-arrow@2x.png"; sourceTree = "<group>"; };
+		9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-arrow@3x.png"; sourceTree = "<group>"; };
 		AF1A39AD206EAE29C573282E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF1BA9E1BCE545F00C2BFB4 /* requirementDoc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requirementDoc.h; sourceTree = "<group>"; };
 		FEFD79131BCEA20E009C2584 /* 1015工作安排.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "1015工作安排.txt"; sourceTree = "<group>"; };
@@ -2201,6 +2209,10 @@
 		0ABED7341A59290B00F93AE7 /* 订单 */ = {
 			isa = PBXGroup;
 			children = (
+				9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */,
+				9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */,
+				9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */,
+				9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */,
 				0AAF70121ABAD5640022FA3C /* 03_5-下单_使用优惠券按钮.png */,
 				0AAF70131ABAD5640022FA3C /* 03_5-下单_使用优惠券按钮@2x.png */,
 				0AAF70141ABAD5640022FA3C /* 03_5-下单_使用优惠券按钮@3x.png */,
@@ -2436,6 +2448,7 @@
 				0ADE413B1A666A09007124CB /* ChangePwdViewController.xib in Resources */,
 				0AA8E9CA1A52E1C50016198A /* tb_bg.png in Resources */,
 				0AAB0E0D1AB84F3300D386F3 /* 复选框@3x.png in Resources */,
+				9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */,
 				0A4ED8D71A6526FB00E5CED6 /* 03_7-付款_银行卡付款@2x.png in Resources */,
 				0A4ED8A61A6522D700E5CED6 /* 08_14-网点详情_电话.png in Resources */,
 				0AA8E9F11A52EE3D0016198A /* FirstViewController.xib in Resources */,
@@ -2484,6 +2497,7 @@
 				0AA8E9E31A52E1C50016198A /* tbNormal3@3x.png in Resources */,
 				0A45C7781AB2ABB700CDFA3D /* 设置.png in Resources */,
 				0AA8E9DB1A52E1C50016198A /* tbNormal1.png in Resources */,
+				9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */,
 				0ADE410C1A663EAC007124CB /* 05-优惠券_折扣券@2x.png in Resources */,
 				0A663DD71A5BA804007BBB0F /* 08_1-个人中心_设置按钮@3x.png in Resources */,
 				0AA8E9CD1A52E1C50016198A /* tbHighlight0@2x.png in Resources */,
@@ -2726,6 +2740,7 @@
 				0A4ED87F1A65160E00E5CED6 /* 09_1-消息中心_背景.png in Resources */,
 				0A2E478B1AB807A300C24A67 /* 背景图@2x.png in Resources */,
 				0ADE41A51A67DEAA007124CB /* 07_2-礼品中心_取消按钮点击态.png in Resources */,
+				9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */,
 				0A71A07E1A5281C100C277A2 /* 02-登录_QQ登录@3x.png in Resources */,
 				0A663ECC1A610D3F007BBB0F /* scanBg.png in Resources */,
 				0A663E9F1A5E819F007BBB0F /* 06-摇一摇_背景.png in Resources */,
@@ -2747,6 +2762,7 @@
 				0AAF700B1ABABC250022FA3C /* ConfirmOrderViewController.xib in Resources */,
 				0A2E47A31AB807FC00C24A67 /* 关闭按钮@2x.png in Resources */,
 				0A2E479E1AB807FC00C24A67 /* 查看按钮@3x.png in Resources */,
+				9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */,
 				0A663DCE1A5BA804007BBB0F /* 08_1-个人中心_立即登录@3x.png in Resources */,
 				0ABED72C1A591D6A00F93AE7 /* 07-优+_优惠券@2x.png in Resources */,
 				0A663DC61A5BA804007BBB0F /* 08_1-个人中心_外面订单.png in Resources */,

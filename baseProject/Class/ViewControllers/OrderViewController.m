@@ -11,12 +11,17 @@
 #import "UIViewController+CustomPopupViewController.h"
 #import "OrderDetailViewController.h"
 #import "ConfirmOrderViewController.h"
+#import "NewAddrViewController.h"
 
 @interface OrderViewController () {
     UIButton *_titleSelctBtn;
     NSString *_sortType;
     OrderDetailViewController *_orderDetailVC;
+    
 }
+//默认地址
+@property (nonatomic, copy) NSDictionary* defaultDic;
+@property (nonatomic, copy) NSString* defaultAdrStr;
 
 @property (nonatomic, copy) NSMutableDictionary *numDic;
 @property (nonatomic, copy) NSMutableArray *selectArr;
@@ -97,6 +102,93 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self requestNetAddress];
+}
+#pragma mark - 默认地址动作
+- (IBAction)doShowDefaultAdressAction:(UITapGestureRecognizer *)sender {
+    if (_defaultDic == nil) {
+        DLog(@"_defaultDic is null :%@",_defaultDic);
+        return;
+    }
+    NewAddrViewController *vc = [[NewAddrViewController alloc] initWithNibName:@"NewAddrViewController" bundle:nil];
+    vc.dataDic = _defaultDic;
+    vc.update = YES;
+//    vc.block = ^() {
+//        [self requestNetAddress];
+//    };
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - 显示当前的默认地址
+//显示默认地址
+- (void)showDefaultAdress {
+    if ([PublicInstance instance].isLogin == NO) {
+        //未登录
+        [self.defaultAdress setText:@"您还未登录，请先登录"];
+    }else{
+        
+        if (_defaultAdrStr != nil
+            && NO == [_defaultAdrStr isKindOfClass:[NSNull class]]
+            && NO == [_defaultAdrStr length] <= 0 ) {
+            //获取到默认地址
+            [self.defaultAdress setText:_defaultAdrStr];
+        }else{
+            
+            //没获取到默认地址
+            [self.defaultAdress setText:@"请设置默认地址"];
+        }
+    }
+}
+//设置默认地址
+- (void)setDefaultAdressValue:(NSString* )value {
+    //set font value
+    if (value.length > 20) {
+        self.defaultAdress.font = [UIFont systemFontOfSize:13];
+    }else{
+        self.defaultAdress.font = [UIFont systemFontOfSize:15];
+    }
+    _defaultAdrStr = [NSString stringWithFormat:@"%@",value];
+    [self showDefaultAdress];
+}
+//处理地址网络地址
+- (void)handlerNetDefaultAdress:(NSArray *)adrArray {
+   
+    [adrArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary* entity = obj;
+       BOOL isDefault = [[entity objectForKey:@"isDefault"] boolValue];
+        if (isDefault) {
+            NSString* defaultAdr = [entity objectForKey:@"allAddress"];
+            [self setDefaultAdressValue:defaultAdr]; //显示默认地址
+            _defaultDic = entity.copy; //保存当前默认地址字典
+            *stop = YES;
+        }
+        
+    }];
+}
+
+- (void)requestNetAddress {
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager POST:[NSString stringWithFormat:@"%@/member/delivery/list", kSERVE_URL] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        DLog(@"JSON: %@", responseObject);
+        NSDictionary *tDic = [NSDictionary dictionaryWithDictionary:responseObject];
+        if ([[tDic objectForKey:@"MZCode"] intValue] != 0) {
+            DLog(@"%@",[tDic objectForKey:@"message"]);
+        }
+        else {
+            
+            NSArray *arr = [tDic objectForKey:@"rows"];
+            [self handlerNetDefaultAdress:arr];
+        }
+        [self.refreshTableView dataSourceDidFinishedLoading];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DLog(@"error:%@",error);
+    }];
+}
 
 - (IBAction)orderBtnClick:(id)sender {
     if ([PublicInstance instance].isLogin == NO) {

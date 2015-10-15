@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UITableView *popTableView;
 @property (nonatomic, assign) NSInteger selectType;
+//默认送餐地址
+@property (strong, nonatomic) IBOutlet UILabel *defaultAdress;
 
 //套餐详情-猜你喜欢进来
 @property (nonatomic, copy) NSDictionary *subDic;
