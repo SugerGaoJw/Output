@@ -155,7 +155,7 @@
 //处理地址网络地址
 - (void)handlerNetDefaultAdress:(NSArray *)adrArray {
    
-    [adrArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [adrArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *  stop) {
         NSDictionary* entity = obj;
        BOOL isDefault = [[entity objectForKey:@"isDefault"] boolValue];
         if (isDefault) {
