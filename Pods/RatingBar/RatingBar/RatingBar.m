@@ -31,10 +31,14 @@
         self.topView.clipsToBounds = YES;
         self.topView.userInteractionEnabled = NO;
         self.bottomView.userInteractionEnabled = NO;
-        self.userInteractionEnabled = YES;
+        self.userInteractionEnabled = NO;
         
+       
+     
         /*
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+         [self addGestureRecognizer:tap];
+         
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         [self addGestureRecognizer:tap];
         [self addGestureRecognizer:pan];*/
@@ -71,6 +75,7 @@
     }
 }
 -(void)tap:(UITapGestureRecognizer *)gesture{
+
     CGPoint point = [gesture locationInView:self];
     NSInteger count = (int)(point.x/self.starWidth)+1;
     self.topView.frame = CGRectMake(0, 0, self.starWidth*count, self.bounds.size.height);
@@ -79,8 +84,8 @@
     }else{
         _starNumber = count-1;
     }
-
 }
+
 -(void)pan:(UIPanGestureRecognizer *)gesture{
     CGPoint point = [gesture locationInView:self];
     NSInteger count = (int)(point.x/self.starWidth);

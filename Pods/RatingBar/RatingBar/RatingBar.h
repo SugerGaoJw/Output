@@ -13,5 +13,6 @@
 /*
  *调整底部视图的颜色
  */
-@property (nonatomic,strong) UIColor *viewColor;
+@property (nonatomic,strong)    UIColor *viewColor;
+@property (weak,nonatomic)      UIButton* sel;
 @end

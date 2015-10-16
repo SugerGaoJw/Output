@@ -19,9 +19,17 @@ typedef void (^EvaluateViewControllerBlock) ();
     IBOutlet RatingBar *_star3;
     IBOutlet RatingBar *_star4;
     
+    __weak IBOutlet UIButton *_sel0;
+    __weak IBOutlet UIButton *_sel1;
+    __weak IBOutlet UIButton *_sel2;
+    __weak IBOutlet UIButton *_sel3;
+    
     IBOutlet UIImageView *_imgVIew;
     IBOutlet UILabel *_nameLbl;
     IBOutlet UILabel *_priceLbl;
+    __weak IBOutlet UIButton *confirm;
+    
+    
     __weak IBOutlet UITextView *_messageTextView;
     __weak UILabel* _messagePlaceHolder;
 }

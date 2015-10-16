@@ -11,6 +11,11 @@
                 <outlet property="_messageTextView" destination="e8i-OY-U87" id="QyD-b8-oDN"/>
                 <outlet property="_nameLbl" destination="euq-9x-Yjw" id="4iA-JQ-W6V"/>
                 <outlet property="_priceLbl" destination="itc-qL-G3d" id="x49-fb-9fo"/>
+                <outlet property="_sel0" destination="OWS-rd-WYD" id="V0l-PN-LUv"/>
+                <outlet property="_sel1" destination="RTH-nc-pga" id="yJl-ii-qyn"/>
+                <outlet property="_sel2" destination="gcK-67-tRu" id="feC-ES-FfD"/>
+                <outlet property="_sel3" destination="EbS-zb-Jt4" id="qg4-1u-NQP"/>
+                <outlet property="confirm" destination="aEQ-So-9nv" id="Z6C-rJ-bfh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -92,30 +97,6 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                         </imageView>
-                        <view hidden="YES" contentMode="scaleToFill" id="TXV-el-oBT" customClass="RatingBar">
-                            <rect key="frame" x="136" y="105" width="160" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="TIg-gt-llP" customClass="RatingBar">
-                            <rect key="frame" x="136" y="204" width="160" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="Uan-Db-v44" customClass="RatingBar">
-                            <rect key="frame" x="136" y="254" width="160" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="r1Q-aK-ptk" customClass="RatingBar">
-                            <rect key="frame" x="136" y="304" width="160" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
                         <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="soq-ML-sJH">
                             <rect key="frame" x="16" y="111" width="121" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -178,17 +159,77 @@
                                 <action selector="postBtnClick:" destination="-1" eventType="touchUpInside" id="QTL-JT-Xcp"/>
                             </connections>
                         </button>
-                        <view hidden="YES" contentMode="scaleToFill" id="IRh-oD-ate" customClass="RatingBar">
-                            <rect key="frame" x="136" y="154" width="160" height="33"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EbS-zb-Jt4">
+                            <rect key="frame" x="290" y="264" width="14" height="14"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="EbS-zb-Jt4">
-                            <rect key="frame" x="296" y="264" width="14" height="14"/>
+                            <state key="normal" image="03_7-付款_选中按钮常态.png"/>
+                            <state key="selected" image="04_4-评价选中Check.png"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6og-re-Gfc">
+                            <rect key="frame" x="296" y="214" width="14" height="14"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dvT-gt-V5f">
+                            <rect key="frame" x="298" y="164" width="14" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="OWS-rd-WYD">
+                            <rect key="frame" x="290" y="115" width="14" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <state key="normal" image="03_7-付款_选中按钮常态.png"/>
+                            <state key="selected" image="04_4-评价选中Check.png"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gcK-67-tRu">
+                            <rect key="frame" x="290" y="214" width="14" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <state key="normal" image="03_7-付款_选中按钮常态.png"/>
+                            <state key="selected" image="04_4-评价选中Check.png"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="RTH-nc-pga">
+                            <rect key="frame" x="290" y="164" width="14" height="14"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <state key="normal" image="03_7-付款_选中按钮常态.png"/>
+                            <state key="selected" image="04_4-评价选中Check.png"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Bz-Cg-Dbg" userLabel="CheckBox0">
+                            <rect key="frame" x="8" y="102" width="296" height="36.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <connections>
+                                <action selector="calbakRatingBarBySel:" destination="-1" eventType="touchUpInside" id="RaI-ZF-B07"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CqI-ki-x54" userLabel="CheckBox1">
+                            <rect key="frame" x="8" y="154" width="296" height="36.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <connections>
+                                <action selector="calbakRatingBarBySel:" destination="-1" eventType="touchUpInside" id="vgg-SA-iIJ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CYJ-5j-fkr" userLabel="CheckBox2">
+                            <rect key="frame" x="8" y="202" width="296" height="36.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <connections>
+                                <action selector="calbakRatingBarBySel:" destination="-1" eventType="touchUpInside" id="9yz-Id-SEk"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uUI-1m-9s8" userLabel="CheckBox3">
+                            <rect key="frame" x="8" y="250" width="296" height="36.5"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <connections>
+                                <action selector="calbakRatingBarBySel:" destination="-1" eventType="touchUpInside" id="Epn-1i-d3N"/>
+                            </connections>
                         </button>
                     </subviews>
                     <animations/>
@@ -201,8 +242,10 @@
         </view>
     </objects>
     <resources>
+        <image name="03_7-付款_选中按钮常态.png" width="15" height="15"/>
         <image name="04_4-评价_评价按钮常态.png" width="272" height="42"/>
         <image name="04_4-评价_评价按钮点击态.png" width="272" height="42"/>
+        <image name="04_4-评价选中Check.png" width="320" height="50"/>
         <image name="line.png" width="1" height="1"/>
     </resources>
 </document>

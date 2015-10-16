@@ -11,8 +11,10 @@
 #import "NSObject+HXAddtions.h"
 #import "IQKeyBoardManager.h"
 
-@interface EvaluateViewController ()
-
+@interface EvaluateViewController () {
+    NSArray* _stars;
+    NSArray* _sels;
+}
 @end
 
 @implementation EvaluateViewController
@@ -25,6 +27,7 @@
     [_imgVIew sd_setImageWithURL:[[[_dataDic objectForKey:@"orderItem"] objectAtIndex:_row] objectForKey:@"imgUrl"] placeholderImage:nil];
     _nameLbl.text = [[[_dataDic objectForKey:@"orderItem"] objectAtIndex:_row] objectForKey:@"foodsName"];
     _priceLbl.text = [NSString stringWithFormat:@"￥%@", [[[_dataDic objectForKey:@"orderItem"] objectAtIndex:_row] objectForKey:@"price"]];
+    [confirm setEnabled:NO];
     
 //    [self getData];
     [self configEvalueateStart];
@@ -160,22 +163,37 @@
 #pragma mark -- Evalueate Start 
 - (void)configEvalueateStart {
     
-    NSDictionary* startsDataSource =
-    @{@"服务相当周到":@"5",@"服务还不错":@"4",@"服务很差":@"1",@"服务一般":@"3"};
+    _star0 = [[RatingBar alloc]initWithFrame:CGRectMake(126, 104, 160, 33)];
+    _star1 = [[RatingBar alloc]initWithFrame:CGRectMake(126, 154, 160, 33)];
+    _star2 = [[RatingBar alloc]initWithFrame:CGRectMake(126, 204, 160, 33)];
+    _star3 = [[RatingBar alloc]initWithFrame:CGRectMake(126, 254, 160, 33)];
     
-    _star0 = [[RatingBar alloc]initWithFrame:CGRectMake(136, 105, 160, 33)];
-    _star1 = [[RatingBar alloc]initWithFrame:CGRectMake(136, 154, 160, 33)];
-    _star2 = [[RatingBar alloc]initWithFrame:CGRectMake(136, 204, 160, 33)];
-    _star3 = [[RatingBar alloc]initWithFrame:CGRectMake(136, 254, 160, 33)];
+    _stars = @[ _star0, _star1,  _star2, _star3 ];
+    _sels  = @[ _sel0 ,  _sel1,   _sel2,  _sel3 ];
     
-    NSArray* stars = @[_star0 ,_star1 , _star2, _star3 ];
+    NSArray* titls = @[@"服务相当周到",@"服务还不错",@"服务一般",@"服务很差"];
+    NSArray* nums = @[@"5",@"4",@"3",@"1"];
     
-    for (int i=0; i<4; i++) {
+    for (int i = 0 ; i < 4; i ++) {
         UILabel *lbl = (UILabel *)[self.view viewWithTag:10+i];
-        lbl.text = [startsDataSource allKeys][i];
-        RatingBar* star = stars[i];
-        star.starNumber = [[startsDataSource allValues][i] integerValue];
+        lbl.text = titls[i];
+        RatingBar* star = _stars[i];
+        star.starNumber = [nums[i] integerValue];
+        star.sel = _sels[i];
         [self.view addSubview:star];
+    }
+}
+
+- (IBAction)calbakRatingBarBySel:(UIButton *)sender {
+    
+    [confirm setEnabled:YES];
+    RatingBar* star = [_stars objectAtIndex:sender.tag];
+    [star.sel setSelected:YES];
+    for (int i = 0 ; i < 4 ; i ++ ) {
+        if (_sels[i] == star.sel) {
+            continue;
+        }
+        [_sels[i] setSelected:NO];
     }
 }
 
@@ -233,5 +251,9 @@
         _messagePlaceHolder.text = @"";
     }
 }
+
+
+
+
 
 @end

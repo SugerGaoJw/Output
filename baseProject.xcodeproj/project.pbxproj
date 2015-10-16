@@ -571,6 +571,8 @@
 		0BB948501AFB65F500882AAD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB9484F1AFB65F500882AAD /* AudioToolbox.framework */; };
 		0BB948551AFCA5CC00882AAD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB948521AFCA5CC00882AAD /* libMobClickLibrary.a */; };
 		9B0232721BD0D834009FFE18 /* IQKeyBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0232711BD0D834009FFE18 /* IQKeyBoardManager.m */; settings = {ASSET_TAGS = (); }; };
+		9BAF634E1BD14CD900EF3F7F /* 04_4-评价选中Check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF634D1BD14CD900EF3F7F /* 04_4-评价选中Check@2x.png */; settings = {ASSET_TAGS = (); }; };
+		9BAF63501BD14D3E00EF3F7F /* 04_4-评价选中Check@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BAF634F1BD14D3E00EF3F7F /* 04_4-评价选中Check@3x.png */; settings = {ASSET_TAGS = (); }; };
 		9BC517061BCFE74C00D9699D /* 03_7-劵@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC517051BCFE74C00D9699D /* 03_7-劵@2x.png */; settings = {ASSET_TAGS = (); }; };
 		9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */; };
 		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; };
@@ -1291,6 +1293,8 @@
 		988D7EE634598AAAEF1E69B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9B0232701BD0D834009FFE18 /* IQKeyBoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyBoardManager.h; sourceTree = "<group>"; };
 		9B0232711BD0D834009FFE18 /* IQKeyBoardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyBoardManager.m; sourceTree = "<group>"; };
+		9BAF634D1BD14CD900EF3F7F /* 04_4-评价选中Check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_4-评价选中Check@2x.png"; sourceTree = "<group>"; };
+		9BAF634F1BD14D3E00EF3F7F /* 04_4-评价选中Check@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_4-评价选中Check@3x.png"; sourceTree = "<group>"; };
 		9BC517051BCFE74C00D9699D /* 03_7-劵@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-劵@2x.png"; sourceTree = "<group>"; };
 		9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@2x.png"; sourceTree = "<group>"; };
 		9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@3x.png"; sourceTree = "<group>"; };
@@ -2228,6 +2232,8 @@
 		0ABED7341A59290B00F93AE7 /* 订单 */ = {
 			isa = PBXGroup;
 			children = (
+				9BAF634F1BD14D3E00EF3F7F /* 04_4-评价选中Check@3x.png */,
+				9BAF634D1BD14CD900EF3F7F /* 04_4-评价选中Check@2x.png */,
 				9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */,
 				9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */,
 				9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */,
@@ -2508,6 +2514,7 @@
 				0ABED72E1A591D6A00F93AE7 /* 07-优+_果蔬配送.png in Resources */,
 				0A4ED89F1A6522D700E5CED6 /* 08_14-网点详情_背景@3x.png in Resources */,
 				0A4ED8711A65160E00E5CED6 /* 09_1-消息中心_付款失败@2x.png in Resources */,
+				9BAF634E1BD14CD900EF3F7F /* 04_4-评价选中Check@2x.png in Resources */,
 				0A663DDD1A5BA804007BBB0F /* 08_1-个人中心_账户充值@3x.png in Resources */,
 				FEF2E1E91BCFF76E00E624C1 /* 个人中心头像@3x.png in Resources */,
 				0ABED6DE1A56C01C00F93AE7 /* 02-登录_登录按钮点击态@3x.png in Resources */,
@@ -2826,6 +2833,7 @@
 				0A71A0A01A52843200C277A2 /* 列表框-中@2x.png in Resources */,
 				0A71A0AB1A52843200C277A2 /* 默认头像@2x.png in Resources */,
 				0A663DFA1A5BB100007BBB0F /* 个人中心白色箭头@3x.png in Resources */,
+				9BAF63501BD14D3E00EF3F7F /* 04_4-评价选中Check@3x.png in Resources */,
 				0AA8E9C91A52E1C50016198A /* nav_OK@2x.png in Resources */,
 				0A4ED8A21A6522D700E5CED6 /* 08_14-网点详情_背景弹窗@3x.png in Resources */,
 				0A663DD21A5BA804007BBB0F /* 08_1-个人中心_背景条.png in Resources */,
