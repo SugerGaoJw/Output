@@ -250,6 +250,58 @@
     }else{
         _messagePlaceHolder.text = @"";
     }
+    
+    NSInteger MaxNumberOfDescriptionChars = 60;
+    NSString *toBeString = textView.text;
+    
+    NSString *lang = [[UITextInputMode currentInputMode] primaryLanguage]; // 键盘输入模式
+    if ([lang isEqualToString:@"zh-Hans"])
+    { // 简体中文输入，包括简体拼音，健体五笔，简体手写
+        
+        UITextRange *selectedRange = [textView markedTextRange];
+        
+        //获取高亮部分
+        
+        UITextPosition *position = [textView positionFromPosition:selectedRange.start offset:0];
+        
+        // 没有高亮选择的字，则对已输入的文字进行字数统计和限制
+        
+        if (!position) {
+            
+            if (toBeString.length > MaxNumberOfDescriptionChars) {
+                
+                textView.text = [toBeString substringToIndex:MaxNumberOfDescriptionChars];
+                
+                
+            }else{
+//                self.lblFontNum.text = [NSString stringWithFormat:@"剩余%ld字",(long)(MaxNumberOfDescriptionChars -textView.text.length)];
+                
+            }
+            
+        }
+        
+        // 有高亮选择的字符串，则暂不对文字进行统计和限制
+        
+        else{
+            
+            
+            
+        }
+        
+    }
+    // 中文输入法以外的直接对其统计限制即可，不考虑其他语种情况
+    else{
+        
+        if (toBeString.length > MaxNumberOfDescriptionChars) {
+            
+            textView.text = [toBeString substringToIndex:MaxNumberOfDescriptionChars];
+            
+        }else{
+//            self.lblFontNum.text = [NSString stringWithFormat:@"剩余%ld字",(long)(MaxNumberOfDescriptionChars -textView.text.length)];
+        }
+        
+    }
+
 }
 
 
