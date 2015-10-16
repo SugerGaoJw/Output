@@ -253,7 +253,7 @@
 - (void)useData:(NSDictionary *)dic {
     NSString *balance = [[dic objectForKey:@"data"] objectForKey:@"balance"];
     NSString *integral = [[dic objectForKey:@"data"] objectForKey:@"integral"];
-    NSString *phone = [[dic objectForKey:@"data"] objectForKey:@"address"];
+    NSString *phone = [[dic objectForKey:@"data"] objectForKey:@"phone"];
     
     _balance = [NSString stringWithFormat:@"￥%@", balance];
     _integral = [NSString stringWithFormat:@"%@", integral];
