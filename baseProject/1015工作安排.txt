@@ -6,10 +6,10 @@
 04_3 m  G	Done
 04_4 a  G
 05   m  G
-06 1 m  Z
-07 + m 改文字 Z
+06 1 m  Z   Done
+07 + m 改文字 Z Done
 07_2 m  Z
-08_1 m  Z
+08_1 m  Z   Done
 08_3 m  G
 08_4 m  G 试验
 09_1 可能要修改 G
