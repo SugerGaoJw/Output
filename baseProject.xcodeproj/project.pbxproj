@@ -570,6 +570,7 @@
 		0B3256FF1B243A4E00878319 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B3256FE1B243A4E00878319 /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0BB948501AFB65F500882AAD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB9484F1AFB65F500882AAD /* AudioToolbox.framework */; };
 		0BB948551AFCA5CC00882AAD /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BB948521AFCA5CC00882AAD /* libMobClickLibrary.a */; };
+		9B0232721BD0D834009FFE18 /* IQKeyBoardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B0232711BD0D834009FFE18 /* IQKeyBoardManager.m */; settings = {ASSET_TAGS = (); }; };
 		9BC517061BCFE74C00D9699D /* 03_7-劵@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC517051BCFE74C00D9699D /* 03_7-劵@2x.png */; settings = {ASSET_TAGS = (); }; };
 		9BD80ECF1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */; };
 		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; };
@@ -1288,6 +1289,8 @@
 		0BB948541AFCA5CC00882AAD /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		3048E0E2832A63D5311D0359 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		988D7EE634598AAAEF1E69B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9B0232701BD0D834009FFE18 /* IQKeyBoardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyBoardManager.h; sourceTree = "<group>"; };
+		9B0232711BD0D834009FFE18 /* IQKeyBoardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyBoardManager.m; sourceTree = "<group>"; };
 		9BC517051BCFE74C00D9699D /* 03_7-劵@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-劵@2x.png"; sourceTree = "<group>"; };
 		9BD80ECE1BCF372100606CD6 /* 03_2-矢量智能对象@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@2x.png"; sourceTree = "<group>"; };
 		9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-矢量智能对象@3x.png"; sourceTree = "<group>"; };
@@ -1411,6 +1414,7 @@
 		0A145B921A36D917007605EA /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				9B02326F1BD0D834009FFE18 /* IQKeyBoardManager */,
 				0AA895391B25D13E00BC4B61 /* SZTextView */,
 				0AA895351B25D13500BC4B61 /* ACEExpandableTextCell */,
 				0BB948511AFCA5CC00882AAD /* UMAnalytics_Sdk_3.4.6 */,
@@ -2377,6 +2381,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9B02326F1BD0D834009FFE18 /* IQKeyBoardManager */ = {
+			isa = PBXGroup;
+			children = (
+				9B0232701BD0D834009FFE18 /* IQKeyBoardManager.h */,
+				9B0232711BD0D834009FFE18 /* IQKeyBoardManager.m */,
+			);
+			path = IQKeyBoardManager;
+			sourceTree = "<group>";
+		};
 		C260EF451484EC5DBFB7ECC8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -3041,6 +3054,7 @@
 				0A663E081A5E5867007BBB0F /* FeedBackViewController.m in Sources */,
 				0A145BB61A36F0D5007605EA /* EGORefreshTableHeaderView.m in Sources */,
 				0AE49C571AA1FB3E007FBDD8 /* YouHuiMealCell.m in Sources */,
+				9B0232721BD0D834009FFE18 /* IQKeyBoardManager.m in Sources */,
 				0A70DE1C1A36CBC3000FE0F9 /* main.m in Sources */,
 				0A72A1591AB3564B00ADE766 /* PointCell.m in Sources */,
 				0A13E13F1A834797002A7BE6 /* OrderViewController.m in Sources */,

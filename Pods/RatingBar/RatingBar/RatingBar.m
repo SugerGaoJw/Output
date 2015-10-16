@@ -33,10 +33,11 @@
         self.bottomView.userInteractionEnabled = NO;
         self.userInteractionEnabled = YES;
         
+        /*
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
         [self addGestureRecognizer:tap];
-        [self addGestureRecognizer:pan];
+        [self addGestureRecognizer:pan];*/
         
         //
         CGFloat width = frame.size.width/7.0;
@@ -44,17 +45,18 @@
         for(int i = 0;i<5;i++){
             UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width*ZOOM, width*ZOOM)];
             img.center = CGPointMake((i+1.5)*width, frame.size.height/2);
-            img.image = [UIImage imageNamed:@"04_4-评价_星星点亮"];
+            img.image = [UIImage imageNamed:@"04_4-评价_星星暗"];
             [self.bottomView addSubview:img];
             UIImageView *img2 = [[UIImageView alloc] initWithFrame:img.frame];
             img2.center = img.center;
-            img2.image = [UIImage imageNamed:@"04_4-评价_星星暗"];
+            img2.image = [UIImage imageNamed:@"04_4-评价_星星点亮"];
             [self.topView addSubview:img2];
         }
         
     }
     return self;
 }
+
 -(void)setViewColor:(UIColor *)backgroundColor{
     if(_viewColor!=backgroundColor){
         self.backgroundColor = backgroundColor;

@@ -202,10 +202,13 @@
         [cell.evaluateBtn addTarget:self action:@selector(evaluateBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         NSString *status = [_dataDic objectForKey:@"status"];
         if ([status isEqualToString:@"订单成功"]) {
+
             cell.evaluateBtn.hidden = NO;
         }
         else {
+#if !DEBUG_ENVIRONMENT
             cell.evaluateBtn.hidden = YES;
+#endif
         }
     }
     cell.evalute = _evelute;

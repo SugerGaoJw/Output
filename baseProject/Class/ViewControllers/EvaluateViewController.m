@@ -9,6 +9,7 @@
 #import "EvaluateViewController.h"
 #import "RatingBar.h"
 #import "NSObject+HXAddtions.h"
+#import "IQKeyBoardManager.h"
 
 @interface EvaluateViewController ()
 
@@ -25,12 +26,19 @@
     _nameLbl.text = [[[_dataDic objectForKey:@"orderItem"] objectAtIndex:_row] objectForKey:@"foodsName"];
     _priceLbl.text = [NSString stringWithFormat:@"￥%@", [[[_dataDic objectForKey:@"orderItem"] objectAtIndex:_row] objectForKey:@"price"]];
     
-    [self getData];
+//    [self getData];
+    [self configEvalueateStart];
+    [self configMessageView];
+    [IQKeyBoardManager installKeyboardManager];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [IQKeyBoardManager disableKeyboardManager];
 }
 
 /*
@@ -149,5 +157,81 @@
     [manager.operationQueue addOperation:operation];
 }
 
+#pragma mark -- Evalueate Start 
+- (void)configEvalueateStart {
+    
+    NSDictionary* startsDataSource =
+    @{@"服务相当周到":@"5",@"服务还不错":@"4",@"服务很差":@"1",@"服务一般":@"3"};
+    
+    _star0 = [[RatingBar alloc]initWithFrame:CGRectMake(136, 105, 160, 33)];
+    _star1 = [[RatingBar alloc]initWithFrame:CGRectMake(136, 154, 160, 33)];
+    _star2 = [[RatingBar alloc]initWithFrame:CGRectMake(136, 204, 160, 33)];
+    _star3 = [[RatingBar alloc]initWithFrame:CGRectMake(136, 254, 160, 33)];
+    
+    NSArray* stars = @[_star0 ,_star1 , _star2, _star3 ];
+    
+    for (int i=0; i<4; i++) {
+        UILabel *lbl = (UILabel *)[self.view viewWithTag:10+i];
+        lbl.text = [startsDataSource allKeys][i];
+        RatingBar* star = stars[i];
+        star.starNumber = [[startsDataSource allValues][i] integerValue];
+        [self.view addSubview:star];
+    }
+}
+
+#pragma mark -- Message TextView
+- (void)configMessageView {
+    //textView placeHolder 其次在UITextView上面覆盖个UILable,UILable设置为全局变量。
+    CGRect rect =  CGRectMake(17, 8, _messageTextView.size.width , 20);
+    UILabel* label = [[UILabel alloc]initWithFrame:rect];
+    label.text = @"请为本次服务作出评价 ^_^";
+    label.enabled = NO;//lable必须设置为不可用
+    label.backgroundColor = [UIColor clearColor];
+    label.textColor = [UIColor lightGrayColor];
+    [_messageTextView addSubview:label];
+    _messagePlaceHolder = label;
+    //圆角
+    _messageTextView.backgroundColor = [UIColor whiteColor];
+    _messageTextView.layer.borderWidth = 1.f;
+    _messageTextView.layer.borderColor = [UIColor lightTextColor].CGColor;
+    _messageTextView.layer.cornerRadius = 5.f;
+    _messageTextView.layer.masksToBounds = YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+   
+    //键盘 return 事件响应
+    if ([text isEqualToString:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    //字数限制 待完善
+    NSString *new = [textView.text stringByReplacingCharactersInRange:range withString:text];
+    NSInteger res = 60 -[new length];
+    if(res >= 0){
+        return YES;
+    }
+    else{
+        
+//        NSRange rg = {0,[text length]+res};
+//        if (rg.length>0) {
+//            NSString *s = [text substringWithRange:rg];
+//            [textView setText:[textView.text stringByReplacingCharactersInRange:range withString:s]];
+//        }
+        return NO;
+    }
+    
+    return YES;
+}
+
+-(void)textViewDidChange:(UITextView *)textView {
+    //placeHolder 实现
+    if (textView.text.length == 0) {
+        _messagePlaceHolder.text = @"请为本次服务作出评价 ^_^";
+    }else{
+        _messagePlaceHolder.text = @"";
+    }
+}
 
 @end

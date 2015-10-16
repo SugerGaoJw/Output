@@ -11,7 +11,7 @@
 
 typedef void (^EvaluateViewControllerBlock) ();
 
-@interface EvaluateViewController : BaseViewController {
+@interface EvaluateViewController : BaseViewController<UITextViewDelegate> {
     
     IBOutlet RatingBar *_star0;
     IBOutlet RatingBar *_star1;
@@ -22,10 +22,11 @@ typedef void (^EvaluateViewControllerBlock) ();
     IBOutlet UIImageView *_imgVIew;
     IBOutlet UILabel *_nameLbl;
     IBOutlet UILabel *_priceLbl;
+    __weak IBOutlet UITextView *_messageTextView;
+    __weak UILabel* _messagePlaceHolder;
 }
 
 @property (copy) EvaluateViewControllerBlock block;
-
 @property (nonatomic, copy) NSDictionary *dataDic;
 @property (nonatomic, assign) int row;
 
