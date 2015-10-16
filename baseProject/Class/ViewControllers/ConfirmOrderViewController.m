@@ -196,7 +196,7 @@
 }
 
 - (void)couponBtnClick:(UIButton *)sender {
-    _selectCoupon = sender.tag;
+    _selectCoupon = (int)sender.tag;
     NSMutableDictionary *dic = [self creatRequestDic];
     [dic setObject:[[self.dataSource objectAtIndex:sender.tag] objectForKey:_pkId] forKey:@"foodsId"];
     
@@ -254,7 +254,7 @@
             NSString *pkid = [NSString stringWithFormat:@"%@", [obj objectForKey:_pkId]];
             if ([pkid isEqualToString:[NSString stringWithFormat:@"%@", row]]) {
                 price = [obj objectForKey:@"price"];
-                t_idx = idx;
+                t_idx = (int)idx;
                 *stop = YES;
             }
         }];
@@ -343,7 +343,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    int row = indexPath.row;
+    int row = (int)indexPath.row;
     if (tableView == _tableView0) {
         static NSString *identifier = @"cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];

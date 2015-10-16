@@ -12,6 +12,7 @@
 
 
 - (CGSize)getContentSize {
+    
     CGSize newSize = self.contentSize; //UITextView的实际高度
     if (kIOS7OrLater) {//7.0以上我们需要自己计算高度
         //        float fPadding = 16.0; // 8.0px x 2

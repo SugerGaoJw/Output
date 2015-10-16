@@ -126,7 +126,7 @@
 - (void)evaluateBtnClick:(UIButton *)sender {
     EvaluateViewController *vc = [[EvaluateViewController alloc] initWithNibName:@"EvaluateViewController" bundle:nil];
     vc.dataDic = _dataDic;
-    vc.row = sender.tag;
+    vc.row = (int)sender.tag;
     [vc setBlock:^() {
         _evelute = YES;
         [self.tableView reloadData];

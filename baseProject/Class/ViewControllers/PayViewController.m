@@ -9,8 +9,9 @@
 #import "PayViewController.h"
 #import "NSObject+HXAddtions.h"
 #import "NSDate+Helper.h"
+#import "MyCouponViewController.h"
 
-@interface PayViewController () {
+@interface PayViewController ()<MyCouponDelegate> {
     NSString *_pwd;
     CGRect _goodsLabelRect; //当前菜品标签视图大小
 }
@@ -20,6 +21,12 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *goodsScrollView;
 //菜品标签视图
 @property (weak, nonatomic) IBOutlet UILabel *goodsLabel;
+//菜品数量标签视图
+@property (weak, nonatomic) IBOutlet UILabel *goodsNumLabel;
+//优惠劵标签视图
+@property (weak, nonatomic) IBOutlet UILabel *couponLabel;
+
+
 @end
 
 @implementation PayViewController
@@ -29,8 +36,13 @@
     // Do any additional setup after loading the view from its nib.
     self.title = @"支付";
     
-    _priceLbl.text = [NSString stringWithFormat:@"%.1f" , [_price floatValue]];
+    _priceLbl.text = [NSString stringWithFormat:@"¥ %.1f 元" , [_price floatValue]];
+    
+    _cntTotalPrice.text = [NSString stringWithFormat:@"共计： %.1f 元" , [_price floatValue]];
+    _cntFinalPrice.text = [NSString stringWithFormat:@"合计： %.1f 元" , [_price floatValue]];
+    
     _payBtn.enabled = NO;
+    [self statisticGoodsProperties];
     
     [self setRBtn:@"返回首页" image:nil imageSel:nil target:self action:@selector(rightBtnClick)];
 }
@@ -53,38 +65,50 @@
 
 
 #pragma mark - Calculate Interface 
-//计算菜品名字
-- (void)calGoodsNames {
-    NSMutableString* mStr = [[NSMutableString alloc]init];
+//计算菜品各属性
+- (void)statisticGoodsProperties {
+    
+    NSMutableString* mGoodsName = [[NSMutableString alloc]init];
+    __block NSInteger mGoodsNum = 0 ;
     __block NSString* str = nil;
     [self.dataSource enumerateObjectsUsingBlock:^(id  obj, NSUInteger idx, BOOL * stop) {
-        str = [obj valueForKey:@"foodsName"];
-        [mStr appendString:str];
-        [mStr appendString:@"+"];
+        str = [obj valueForKey:@"name"];
+        if (str == nil) {
+            *stop = YES;
+            return ;
+        }
+        mGoodsNum ++ ;
+        [mGoodsName appendString:str];
+        [mGoodsName appendString:@"+"];
     }];
-    
-    if (mStr.length <= 1) {
+    if (mGoodsName.length <= 1) {
         DLog(@"mStr is null");
         return;
     }
-    NSString* curStr = [mStr substringWithRange:NSMakeRange(0, mStr.length - 1)];
-    [self setGoodsLabelValue:curStr];
+    //拼接菜品名称
+    NSString* curGoodsName = [mGoodsName substringWithRange:NSMakeRange(0, mGoodsName.length - 1)];
+    curGoodsName = [NSString stringWithFormat:@"菜品：%@",curGoodsName];
+    [self setGoodsLabelValue:curGoodsName];
+    
+    //计算菜品数量
+    NSString* curGoodsNum = [NSString stringWithFormat:@" %ld 份",(long)mGoodsNum];
+    [self.goodsNumLabel setText:curGoodsNum];
+    
 }
 //动态计算label宽高
 - (void)setGoodsLabelValue:(NSString *)value {
-    
+  
+    _goodsLabel.text = value;
     [_goodsLabel setNumberOfLines:0];
     _goodsLabel.lineBreakMode = NSLineBreakByCharWrapping;
-    // 测试字串
-    NSString *s = value;
-    UIFont *font = [UIFont fontWithName:@"Arial" size:15];
     //设置一个行高上限
     CGSize size = CGSizeMake(__MainScreen_Width,2000);
     //计算实际frame大小，并将label的frame变成实际大小
-    CGSize labelsize =  [s sizeWithFont:font constrainedToSize:size lineBreakMode:NSLineBreakByCharWrapping];
-    _goodsLabelRect = CGRectMake(8, 0, labelsize.width - 8, labelsize.height + 3);
+    CGFloat labelHeight = [shareFun heightOfLabel:_goodsLabel];
+    
+    _goodsLabelRect = CGRectMake(8, 0, _goodsLabel.size.width - 8, labelHeight + 3);
     [_goodsLabel setFrame:_goodsLabelRect];
-    _goodsLabel.text = value;
+   
     //计算滚动视图
     size = CGSizeMake(_goodsLabelRect.size.width, _goodsLabelRect.size.height);
     [self setGoodsScrollViewContentSize:size];
@@ -94,6 +118,52 @@
     [_goodsScrollView setContentSize:szie];
 }
 
+#pragma mark - CallBack Coupon
+- (void)calBakCouponType:(ENCouponType)enCouponType CouponNum:(NSString *)couponNum {
+    
+    SEL selArray[] = {
+        @selector(handlerSaleOffCoupon:),
+        @selector(handlerDiscountCoupon:)
+    };
+    
+    int count = sizeof(selArray) / sizeof(SEL);
+    if (enCouponType >= count || (int)enCouponType <= -1) {
+        DLog(@"sorry @selector is failed ");
+        return;
+    }
+    
+    void(*imp)(id,SEL,NSString *) = (typeof(imp))[self methodForSelector:selArray[enCouponType]];
+    imp(self, selArray[enCouponType],couponNum);
+
+    
+    
+}
+//处理打折优惠事件
+- (void)handlerSaleOffCoupon:(NSString *)couponNum{
+    
+    CGFloat saleOff =  [couponNum floatValue] * .1f;
+    _cntDiscountPrice.text = [NSString stringWithFormat:@"X %.1f ％", saleOff];
+    
+    CGFloat final = [_price floatValue] * saleOff;
+    _cntFinalPrice.text = [NSString stringWithFormat:@"合计 %.1f 元" , final];
+    
+    _couponLabel.text = [NSString stringWithFormat:@"折扣劵 %.1f 折",saleOff];
+    
+}
+//处理立减优惠事件
+- (void)handlerDiscountCoupon:(NSString *)couponNum {
+    
+    int discount =  [couponNum intValue] ;
+    _cntDiscountPrice.text = [NSString stringWithFormat:@"- %d 元", discount];
+    
+    CGFloat final = [_price floatValue] - discount;
+    _cntFinalPrice.text = [NSString stringWithFormat:@"合计 %.1f 元" , final];
+    
+    _couponLabel.text = [NSString stringWithFormat:@"抵用劵 %d 元",discount];
+}
+
+
+#pragma mark - Button Action
 - (IBAction)payChannelBtnClick:(UIButton *)sender {
     for (int i=10; i<15; i++) {
         UIImageView *img = (UIImageView *)[self.view viewWithTag:i];
@@ -105,6 +175,14 @@
         }
     }
     _payBtn.enabled = YES;
+}
+// 选择优惠劵动作
+- (IBAction)chsCouponAction:(UIButton *)sender {
+    
+    MyCouponViewController* couponVC = [[MyCouponViewController alloc]initWithNibName:@"MyCouponViewController" bundle:nil];
+    couponVC.hidesBottomBarWhenPushed = YES;
+    couponVC.couponDelegate = self;
+    [self.navigationController pushViewController:couponVC animated:YES];
 }
 
 - (IBAction)buyBtnClick:(id)sender {

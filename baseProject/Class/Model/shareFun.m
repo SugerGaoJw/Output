@@ -79,6 +79,7 @@
 }
 
 + (float)heightOfLabel:(UILabel *)label {
+    
     CGSize size = CGSizeMake(label.frame.size.width, CGFLOAT_MAX);
     CGSize labelsize = [label.text sizeWithFont:label.font constrainedToSize:size lineBreakMode:label.lineBreakMode];
     return ceil(labelsize.height);
@@ -125,7 +126,7 @@
 {
     const char* str = [input UTF8String];
     unsigned char result[CC_MD5_DIGEST_LENGTH];
-    CC_MD5(str, strlen(str), result);
+    CC_MD5(str, (CC_LONG)strlen(str), result);
     NSMutableString *ret = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH];
     
     for(int i = 0; i<CC_MD5_DIGEST_LENGTH; i++) {

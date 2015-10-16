@@ -63,6 +63,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSDictionary* dic =  [self.dataSource objectAtIndex:indexPath.row];
+    [self handlerCalbakCouponWithDic:dic];
+  
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - CallBack Coupon
+- (void)handlerCalbakCouponWithDic:(NSDictionary *)dic {
+    
+    ENCouponType type = -1;
+    if ([[dic objectForKey:@"couponType"] isEqualToString:@"折扣"]) {
+        type = EnSaleOffCouponType ;
+    }
+    else if ([[dic objectForKey:@"couponType"] isEqualToString:@"抵用"]) {
+        type = EnDiscountCouponType;
+    }
+    
+    SEL sel = @selector(calBakCouponType:CouponNum:);
+    if (_couponDelegate && [_couponDelegate respondsToSelector:sel]) {
+        [_couponDelegate calBakCouponType:type CouponNum:[dic objectForKey:@"couponPrice"]];
+    }
 }
 
 #pragma mark - scrollView delegate

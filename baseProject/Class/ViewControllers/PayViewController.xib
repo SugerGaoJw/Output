@@ -7,9 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PayViewController">
             <connections>
+                <outlet property="_cntDiscountPrice" destination="F9e-oh-Ska" id="eea-xN-Vtz"/>
+                <outlet property="_cntFinalPrice" destination="tTt-M6-fvM" id="75u-Vj-ef6"/>
+                <outlet property="_cntTotalPrice" destination="veG-WP-h8g" id="lwS-mj-ARf"/>
                 <outlet property="_payBtn" destination="vd9-9y-HLV" id="fGF-u6-2oN"/>
-                <outlet property="_priceLbl" destination="28f-ex-NiI" id="Ccd-fA-Zry"/>
+                <outlet property="_priceLbl" destination="28f-ex-NiI" id="D5p-sJ-sgL"/>
+                <outlet property="couponLabel" destination="ugw-HV-uGT" id="MdZ-WV-vY4"/>
                 <outlet property="goodsLabel" destination="mai-Mh-WmM" id="caR-Dy-pLz"/>
+                <outlet property="goodsNumLabel" destination="yLx-B5-Vl6" id="Fxq-Dg-9Q2"/>
                 <outlet property="goodsScrollView" destination="cca-2m-5ka" id="mVb-eX-qsL"/>
                 <outlet property="statisticScrollView" destination="1AK-Px-pyC" id="ojh-hy-yO9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -81,7 +86,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="payChannelBtnClick:" destination="-1" eventType="touchDown" id="4SW-X7-qyn"/>
+                        <action selector="chsCouponAction:" destination="-1" eventType="touchUpInside" id="Fhc-g8-Gah"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" id="Azw-n8-XmC">
@@ -180,14 +185,14 @@
                             <animations/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <animations/>
                 </scrollView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ugw-HV-uGT">
-                    <rect key="frame" x="190" y="359" width="114" height="21"/>
+                    <rect key="frame" x="150" y="359" width="154" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -198,14 +203,6 @@
                     <rect key="frame" x="0.0" y="388" width="320" height="63"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总价：0元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="veG-WP-h8g">
-                            <rect key="frame" x="26" y="8" width="286" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.png" id="mDM-TL-jVI">
                             <rect key="frame" x="120" y="57" width="200" height="1"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -221,6 +218,14 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F9e-oh-Ska">
                             <rect key="frame" x="26" y="33" width="286" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.070588235294117646" green="0.074509803921568626" blue="0.086274509803921567" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总价：0元" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="veG-WP-h8g">
+                            <rect key="frame" x="26" y="8" width="286" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>

@@ -10,8 +10,14 @@
 
 @interface PayViewController : BaseViewController {
     
-    IBOutlet UILabel *_priceLbl;
-    IBOutlet UIButton *_payBtn;
+    __weak IBOutlet UILabel *_priceLbl;
+    __weak IBOutlet UIButton *_payBtn;
+    
+    //统计面板显示
+    __weak IBOutlet UILabel *_cntTotalPrice; //总计
+    __weak IBOutlet UILabel *_cntDiscountPrice; //优惠
+    __weak IBOutlet UILabel *_cntFinalPrice;    //合计
+    
 }
 
 @property (nonatomic, copy) NSString *price;
