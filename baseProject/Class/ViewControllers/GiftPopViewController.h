@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GiftPopViewController : UIViewController
+@interface GiftPopViewController : BaseViewController
 
 
 @property (strong, nonatomic) IBOutlet UIButton *dismissBtn;
-
+@property (strong, nonatomic) IBOutlet UIButton *exchangeBtn;
+@property (strong, nonatomic) IBOutlet UILabel * totalNum;
+@property (strong, nonatomic) IBOutlet UILabel * needNum;
 @end

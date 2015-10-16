@@ -56,7 +56,17 @@
     vc.gift = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
+- (void)integralBtnClick:(UIButton *)sender
+{
+    GiftPopViewController *vc = [[GiftPopViewController alloc] initWithNibName:@"GiftPopViewController" bundle:nil];
+    vc.view.backgroundColor = [UIColor clearColor];
+//    [vc.disMissBtn addTarget:self action:@selector(dismissBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    [vc.lookBtn addTarget:self action:@selector(lookBtnClick) forControlEvents:UIControlEventTouchUpInside];
+//    vc.tipLbl0.text = [NSString stringWithFormat:@"恭喜您获得 %@ 请查看！", [dic objectForKey:@"couponName"]];
+//    vc.tipLbl1.text = [NSString stringWithFormat:@"此券可抵%@%@，适用于%@", [dic objectForKey:@"couponPrice"], [dic objectForKey:@"couponType"], [dic objectForKey:@"couponUseRegionDescription"]];
+//    vc.tipLbl2.text = [NSString stringWithFormat:@"使用时间：%@-%@", dateStr, dateStr1];
+    [self presentPopupView:vc.view animationType:CustomPopupViewAnimationFade];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataSource.count;
 }
@@ -66,16 +76,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary * dic =[self.dataSource objectAtIndex:indexPath.row];
     static NSString *identifier = @"GiftTableViewCell";
     GiftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"GiftTableViewCell" owner:self options:nil] lastObject];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor whiteColor];
-        [cell.exchangeBtn addTarget:self action:@selector(exchangeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [cell.exchangeBtn addTarget:self action:[self chooseSelector:cell.exchangeBtn currentDic:dic] forControlEvents:UIControlEventTouchUpInside];
     }
     cell.exchangeBtn.tag = indexPath.row;
-    cell.dataDic = [self.dataSource objectAtIndex:indexPath.row];
+    cell.dataDic = dic;
     return cell;
 }
 
@@ -100,7 +112,23 @@
         [self.refreshTableView scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
     }
 }
-
+#pragma mark - choose SEL
+- (SEL)chooseSelector:(id)sender currentDic:(NSDictionary *)dataDic
+{
+    NSString *paymentCurrency = [dataDic objectForKey:@"paymentCurrency"];
+    if ([paymentCurrency isEqualToString:@"Integral"]) {
+        //积分
+        return @selector(integralBtnClick:);
+    }
+    else if ([paymentCurrency isEqualToString:@"RMB"]) {
+        //人民币
+        return @selector(exchangeBtnClick:);
+    }else
+    {
+        return @selector(exchangeBtnClick:);
+    }
+    
+}
 #pragma mark - CWRefreshTableViewDelegate
 - (void)CWRefreshTableViewReloadTableViewDataSource:(CWRefreshTableViewPullType) refreshType {
     switch (refreshType) {
