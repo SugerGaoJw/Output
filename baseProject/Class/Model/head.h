@@ -9,6 +9,11 @@
 //#define kSERVE_URL      @"http://192.168.1.99:8081"
 #define kSERVE_URL      @"http://www.91shipu.com:8081"
 
+//判断是否测试环境
+#ifndef DEBUG_ENVIRONMENT
+#define DEBUG_ENVIRONMENT 1
+#endif
+
 #define kSuccessCode    @"0"
 
 #define kNavBarHeight   44

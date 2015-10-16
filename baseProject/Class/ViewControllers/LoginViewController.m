@@ -25,13 +25,17 @@
     self.title = @"登录";
     [self setLBtn:@"返回" image:nil imageSel:nil target:self action:@selector(leftBtnClick)];
     [self setRBtn:@"注册" image:nil imageSel:nil target:self action:@selector(rightBtnClick)];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     _phoneTextField.text = [PublicInstance instance].userLoginName;
+    
+#if DEBUG_ENVIRONMENT
+    _phoneTextField.text = @"15980538648";
+    _pwdTextField.text = @"123456";
+#endif
 }
 
 - (void)didReceiveMemoryWarning {

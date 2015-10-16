@@ -63,7 +63,6 @@
 		0A13E1A51A84F060002A7BE6 /* 04_3-订单详情_取消订单常态.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A13E1931A84F060002A7BE6 /* 04_3-订单详情_取消订单常态.png */; };
 		0A13E1A61A84F060002A7BE6 /* 04_3-订单详情_取消订单常态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A13E1941A84F060002A7BE6 /* 04_3-订单详情_取消订单常态@2x.png */; };
 		0A13E1A71A84F060002A7BE6 /* 04_3-订单详情_取消订单常态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A13E1951A84F060002A7BE6 /* 04_3-订单详情_取消订单常态@3x.png */; };
-		0A13E1A81A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A13E1961A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态.png */; };
 		0A13E1A91A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A13E1971A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态@2x.png */; };
 		0A13E1AA1A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A13E1981A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态@3x.png */; };
 		0A13E1AE1A84F383002A7BE6 /* MyOrderDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A13E1AC1A84F383002A7BE6 /* MyOrderDetailTableViewCell.m */; };
@@ -644,7 +643,6 @@
 		0A13E1931A84F060002A7BE6 /* 04_3-订单详情_取消订单常态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_3-订单详情_取消订单常态.png"; sourceTree = "<group>"; };
 		0A13E1941A84F060002A7BE6 /* 04_3-订单详情_取消订单常态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_3-订单详情_取消订单常态@2x.png"; sourceTree = "<group>"; };
 		0A13E1951A84F060002A7BE6 /* 04_3-订单详情_取消订单常态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_3-订单详情_取消订单常态@3x.png"; sourceTree = "<group>"; };
-		0A13E1961A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_3-订单详情_取消订单点击态.png"; sourceTree = "<group>"; };
 		0A13E1971A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_3-订单详情_取消订单点击态@2x.png"; sourceTree = "<group>"; };
 		0A13E1981A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "04_3-订单详情_取消订单点击态@3x.png"; sourceTree = "<group>"; };
 		0A13E1AB1A84F383002A7BE6 /* MyOrderDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -2266,7 +2264,6 @@
 				0A13E1931A84F060002A7BE6 /* 04_3-订单详情_取消订单常态.png */,
 				0A13E1941A84F060002A7BE6 /* 04_3-订单详情_取消订单常态@2x.png */,
 				0A13E1951A84F060002A7BE6 /* 04_3-订单详情_取消订单常态@3x.png */,
-				0A13E1961A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态.png */,
 				0A13E1971A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态@2x.png */,
 				0A13E1981A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态@3x.png */,
 				0A13E1691A84E9AD002A7BE6 /* 03_2-点餐_菜品详细背景.png */,
@@ -2573,7 +2570,6 @@
 				0A13E1A11A84F060002A7BE6 /* 04_3-订单详情_评价按钮常态@3x.png in Resources */,
 				0AA8E9D51A52E1C50016198A /* tbHighlight3.png in Resources */,
 				0A72A17A1AB5889500ADE766 /* 03_2 点餐_下拉选中按钮@3x.png in Resources */,
-				0A13E1A81A84F060002A7BE6 /* 04_3-订单详情_取消订单点击态.png in Resources */,
 				0A13E1561A83491B002A7BE6 /* 03_2-点餐_定位.png in Resources */,
 				0ADE41341A6651A6007124CB /* 05-优惠多套餐_顶栏切换选中2.png in Resources */,
 				0A663DC71A5BA804007BBB0F /* 08_1-个人中心_外面订单@2x.png in Resources */,
