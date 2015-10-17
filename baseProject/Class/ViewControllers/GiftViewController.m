@@ -58,13 +58,13 @@
 }
 - (void)integralBtnClick:(UIButton *)sender
 {
+    NSDictionary * dic = [self.dataSource objectAtIndex:sender.tag];
     GiftPopViewController *vc = [[GiftPopViewController alloc] initWithNibName:@"GiftPopViewController" bundle:nil];
     vc.view.backgroundColor = [UIColor clearColor];
-//    [vc.disMissBtn addTarget:self action:@selector(dismissBtnClick) forControlEvents:UIControlEventTouchUpInside];
-//    [vc.lookBtn addTarget:self action:@selector(lookBtnClick) forControlEvents:UIControlEventTouchUpInside];
-//    vc.tipLbl0.text = [NSString stringWithFormat:@"恭喜您获得 %@ 请查看！", [dic objectForKey:@"couponName"]];
-//    vc.tipLbl1.text = [NSString stringWithFormat:@"此券可抵%@%@，适用于%@", [dic objectForKey:@"couponPrice"], [dic objectForKey:@"couponType"], [dic objectForKey:@"couponUseRegionDescription"]];
-//    vc.tipLbl2.text = [NSString stringWithFormat:@"使用时间：%@-%@", dateStr, dateStr1];
+    [vc.dismissBtn addTarget:self action:@selector(dismissBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [vc.exchangeBtn addTarget:self action:@selector(exchangeBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    vc.needNum.text = [NSString stringWithFormat:@"需要积分：%@",[dic objectForKey:@"price"]];
+    vc.totalNum.text = [NSString stringWithFormat:@"%@",@"500"];
     [self presentPopupView:vc.view animationType:CustomPopupViewAnimationFade];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -192,5 +192,11 @@
     
     [_tableView reloadData];
 }
+#pragma mark - popAction
 
+- (void)exchangeBtnClick {
+    [self dismissBtnClick];
+//    MyCouponViewController *vc = [[MyCouponViewController alloc] initWithNibName:@"MyCouponViewController" bundle:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
+}
 @end
