@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RCDraggableButton.h"
 
 @interface PublicInstance : NSObject  {
 }
@@ -33,4 +34,8 @@
  */
 @property (nonatomic, copy) NSArray *orderArr;
 
+/**
+ *  菜单分类
+ */
+@property (nonatomic, strong) RCDraggableButton *SusBtn;
 @end

@@ -36,6 +36,10 @@
     _isLogin = isLogin;
     NSUserDefaults *sud = [NSUserDefaults standardUserDefaults];
     [sud setBool:isLogin forKey:@"isLogin"];
+    
+    if (_SusBtn) {
+        _SusBtn.hidden = NO;
+    }
 }
 
 - (void)setUserLoginName:(NSString *)userLoginName {

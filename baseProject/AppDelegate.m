@@ -21,6 +21,7 @@
 #import "WeiboSDK.h"
 #import "ZBarReaderView.h"
 #import "MobClick.h"
+#import "RCDraggableButton.h"
 
 @interface AppDelegate () {
     NSString *_url;
@@ -41,6 +42,7 @@
     [MobClick startWithAppkey:@"54f90dbdfd98c5f6d30007de"];
     [MobClick checkUpdate];
     [ZBarReaderView class];
+    [self setUpSusBtn];
     [self getLoginState];
     [self customizeInterface];
     [self setupShareSDK];
@@ -56,7 +58,16 @@
 }
 
 #pragma mark - Methods
-
+- (void)setUpSusBtn
+{
+    RCDraggableButton *sBtn = [[RCDraggableButton alloc] initInKeyWindowWithFrame:CGRectMake(0, 100, 47, 47)];
+    [sBtn setBackgroundImage:[UIImage imageNamed:@"04_4-评价_星星点亮"] forState:UIControlStateNormal];
+    [sBtn setTapActionWithBlock:^{
+        NSLog(@"进入购物车");
+    }];
+    sBtn.hidden = YES;
+    [[PublicInstance instance] setSusBtn:sBtn];
+}
 - (void)setupViewControllers {
     UIViewController *firstViewController = [[FirstViewController alloc] init];
     UINavigationController *firstNavigationController = [[InteractivePopNavigationController alloc]
