@@ -42,6 +42,7 @@
     _cntFinalPrice.text = [NSString stringWithFormat:@"合计： %.1f 元" , [_price floatValue]];
     
     _payBtn.enabled = NO;
+    _mainScrollView.contentSize =  CGSizeMake(__MainScreen_Width, __MainScreen_Height - 5);
     [self statisticGoodsProperties];
     
     [self setRBtn:@"返回首页" image:nil imageSel:nil target:self action:@selector(rightBtnClick)];
@@ -60,7 +61,7 @@
     //设置统计视图实际宽高
 - (void)setStatisticScrollView:(UIScrollView *)statisticScrollView {
     _statisticScrollView = statisticScrollView;
-    _statisticScrollView.contentSize = CGSizeMake(__MainScreen_Width, 90);
+    _statisticScrollView.contentSize = CGSizeMake(__MainScreen_Width, 110);
 }
 
 

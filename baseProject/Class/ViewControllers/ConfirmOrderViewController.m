@@ -99,6 +99,9 @@
     }
     _locService = [[BMKLocationService alloc]init];
     _geocodesearch = [[BMKGeoCodeSearch alloc]init];
+    
+    
+    [self setRBtn:@"新增" image:nil imageSel:nil target:self action:@selector(addAddrBtnClick:)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,6 +112,10 @@
 - (void)setNumDic:(NSMutableDictionary *)numDic {
     _numDic = [[NSMutableDictionary alloc] initWithDictionary:numDic];
 }
+- (void)rightBtnClick {
+    
+}
+
 
 - (IBAction)typeBtnClick:(UIButton *)sender {
     NSString *paymentCurrency = [[self.dataSource objectAtIndex:0] objectForKey:@"paymentCurrency"];
@@ -458,6 +465,7 @@
     [SVProgressHUD showWithStatus:@"定位中" maskType:SVProgressHUDMaskTypeClear];
 }
 
+
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation {
     [_locService stopUserLocationService];
     
@@ -472,6 +480,7 @@
     else
     {
         DLog(@"反geo检索发送失败");
+        [SVProgressHUD showErrorWithStatus:@"定位失败"];
     }
 }
 

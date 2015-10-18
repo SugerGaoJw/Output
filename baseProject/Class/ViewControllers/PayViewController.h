@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "TPKeyboardAvoidingCollectionView.h"
 
 @interface PayViewController : BaseViewController {
     
@@ -18,6 +19,7 @@
     __weak IBOutlet UILabel *_cntDiscountPrice; //优惠
     __weak IBOutlet UILabel *_cntFinalPrice;    //合计
     
+    __weak IBOutlet TPKeyboardAvoidingCollectionView *_mainScrollView;
 }
 
 @property (nonatomic, copy) NSString *price;

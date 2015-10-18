@@ -3209,6 +3209,7 @@
 					"$(PROJECT_DIR)/baseProject/Class/ThirdParty/BaiduMap_IOSSDK_v2.6.0_Lib",
 					"$(PROJECT_DIR)/baseProject/Class/ThirdParty/UMAnalytics_Sdk_3.4.6",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ws.buxingjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -3242,6 +3243,7 @@
 					"$(PROJECT_DIR)/baseProject/Class/ThirdParty/BaiduMap_IOSSDK_v2.6.0_Lib",
 					"$(PROJECT_DIR)/baseProject/Class/ThirdParty/UMAnalytics_Sdk_3.4.6",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ws.buxingjie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
