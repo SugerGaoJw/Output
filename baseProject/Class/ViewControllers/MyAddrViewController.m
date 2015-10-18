@@ -9,8 +9,13 @@
 #import "MyAddrViewController.h"
 #import "MyAddrTableViewCell.h"
 #import "NewAddrViewController.h"
+#import "BMapKit.h"
 
-@interface MyAddrViewController ()
+@interface MyAddrViewController () <BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate>{
+    
+    BMKLocationService* _locService;
+    BMKGeoCodeSearch* _geocodesearch;
+}
 
 @end
 
@@ -27,6 +32,12 @@
     self.refreshTableView = [[CWRefreshTableView alloc] initWithTableView:_tableView pullDirection:CWRefreshTableViewDirectionAll];
     self.refreshTableView.delegate = self;
     [self.refreshTableView reload];
+    
+    //    初始化百度地图
+    _locService = [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    _geocodesearch = [[BMKGeoCodeSearch alloc]init];
+    _geocodesearch.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +53,10 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (IBAction)locatedCurAddressAction:(id)sender {
+    [_locService startUserLocationService];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -51,7 +66,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+#pragma mark - TableView DataSource
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
@@ -196,6 +211,83 @@
         self.refreshTableView.totalPage++;
     }
     [_tableView reloadData];
+}
+
+
+#pragma mark - BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate
+- (void)willStartLocatingUser {
+    [SVProgressHUD showWithStatus:@"定位中" maskType:SVProgressHUDMaskTypeClear];
+}
+
+
+- (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation {
+    [_locService stopUserLocationService];
+    
+    CLLocationCoordinate2D pt = userLocation.location.coordinate;
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeocodeSearchOption.reverseGeoPoint = pt;
+    BOOL flag = [_geocodesearch reverseGeoCode:reverseGeocodeSearchOption];
+    if(flag)
+    {
+        DLog(@"反geo检索发送成功");
+    }
+    else
+    {
+        DLog(@"反geo检索发送失败");
+        [SVProgressHUD showErrorWithStatus:@"定位失败"];
+    }
+}
+
+- (void)didFailToLocateUserWithError:(NSError *)error {
+    DLog(@"location error");
+    [SVProgressHUD showErrorWithStatus:@"定位失败"];
+}
+
+- (void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error {
+    if (error == 0) {
+        NSString *province = result.addressDetail.province;
+        NSString *city = result.addressDetail.city;
+        NSString *district = result.addressDetail.district;
+        [self getAreaId:province city:city area:district];
+    }
+    else {
+        [SVProgressHUD dismiss];
+        DLog(@"%d", error);
+    }
+}
+
+
+- (void)getAreaId:(NSString *)province city:(NSString *)city area:(NSString *)area {
+    
+    NSMutableDictionary *tmpDic = [self creatRequestDic];
+    [tmpDic setObject:province forKey:@"province"];
+    [tmpDic setObject:city forKey:@"city"];
+    [tmpDic setObject:area forKey:@"area"];
+    
+    NSString *url = [NSString stringWithFormat:@"%@/region/get-by-name", kSERVE_URL];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    [manager POST:url parameters:tmpDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        DLog(@"JSON: %@", responseObject);
+        NSDictionary *tDic = [NSDictionary dictionaryWithDictionary:responseObject];
+        if ([[tDic objectForKey:@"MZCode"] intValue] != 0) {
+            [SVProgressHUD showErrorWithStatus:@"暂未覆盖，我们会加油哦！"];
+        }
+        else {
+            [SVProgressHUD dismiss];
+            NewAddrViewController *vc = [[NewAddrViewController alloc] initWithNibName:@"NewAddrViewController" bundle:nil];
+            vc.locateName = [NSString stringWithFormat:@"%@%@%@", province, city, area];
+            vc.locateAreaId = [NSString stringWithFormat:@"%@", [tDic objectForKey:@"id"]];
+            vc.block = ^() {
+                [self getData];
+            };
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        DLog(@"error:%@",error);
+        [SVProgressHUD showErrorWithStatus:@"加载失败，请重试"];
+    }];
 }
 
 
