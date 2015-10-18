@@ -12,6 +12,9 @@
     
 }
 
+@property (copy, nonatomic)NSString* integral; //积分
+@property (copy, nonatomic)NSString* balance; //余额
+@property (copy, nonatomic)NSString* amountNo; //帐号
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

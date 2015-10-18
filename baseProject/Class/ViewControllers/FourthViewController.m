@@ -82,6 +82,11 @@
     }
     MyAccountViewController *vc = [[MyAccountViewController alloc] initWithNibName:@"MyAccountViewController" bundle:nil];
     vc.hidesBottomBarWhenPushed = YES;
+    
+    vc.integral = _integral; //积分
+    vc.balance = _balance;  //余额
+    vc.amountNo = _userNameLbl.text; //手机号
+    
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -251,6 +256,7 @@
 }
 
 - (void)useData:(NSDictionary *)dic {
+    
     NSString *balance = [[dic objectForKey:@"data"] objectForKey:@"balance"];
     NSString *integral = [[dic objectForKey:@"data"] objectForKey:@"integral"];
     NSString *phone = [[dic objectForKey:@"data"] objectForKey:@"phone"];
