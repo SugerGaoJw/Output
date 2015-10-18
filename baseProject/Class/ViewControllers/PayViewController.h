@@ -8,7 +8,28 @@
 
 #import "BaseViewController.h"
 #import "TPKeyboardAvoidingCollectionView.h"
-
+typedef NS_ENUM(NSInteger, PayType){
+    /*!
+     *  现金支付
+     */
+    PayTypeCash = 0,
+    /*!
+     *  支付宝支付
+     */
+    PayTypeALiPay,
+    /*!
+     *  易付宝支付
+     */
+    PayTypeYeePay,
+    /*!
+     *  微信支付
+     */
+    PayTypeWXPay,
+    /*!
+     *  优惠支付
+     */
+    PayTypeGiftPay,
+};
 @interface PayViewController : BaseViewController {
     
     __weak IBOutlet UILabel *_priceLbl;

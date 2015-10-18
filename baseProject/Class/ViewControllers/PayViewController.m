@@ -10,10 +10,11 @@
 #import "NSObject+HXAddtions.h"
 #import "NSDate+Helper.h"
 #import "MyCouponViewController.h"
-
+#define kCashImgTag 10
 @interface PayViewController ()<MyCouponDelegate> {
     NSString *_pwd;
     CGRect _goodsLabelRect; //当前菜品标签视图大小
+    PayType currentType;//支付方式
 }
 //统计滚动视图
 @property (weak, nonatomic) IBOutlet UIScrollView *statisticScrollView;
@@ -191,6 +192,7 @@
     for (int i=10; i<15; i++) {
         UIImageView *img = (UIImageView *)[self.view viewWithTag:i];
         if (img.highlighted == YES) {
+            currentType = i - kCashImgTag;
             selectPayChannel = YES;
             break;
         }
@@ -250,7 +252,7 @@
 //    [dic setObject:[NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]] forKey:@"arrivalTime"];
 
     
-    UIImageView *img = (UIImageView *)[self.view viewWithTag:10];
+    UIImageView *img = (UIImageView *)[self.view viewWithTag:kCashImgTag];
     if (img.highlighted) {
         [dic setObject:@"CoD" forKey:@"payChannel"];
     }
@@ -339,7 +341,7 @@
     NSMutableDictionary *dic = [self creatRequestDic];
     [dic setObject:[[self.dataSource objectAtIndex:0] objectForKey:@"pkId"] forKey:@"goodsId"];
     [dic setObject:[NSString stringWithFormat:@"%@", _addressId] forKey:@"deliveryAddressId"];
-    UIImageView *img = (UIImageView *)[self.view viewWithTag:10];
+    UIImageView *img = (UIImageView *)[self.view viewWithTag:kCashImgTag];
     if (img.highlighted) {
         [dic setObject:@"CoD" forKey:@"payChannel"];
     }
@@ -367,7 +369,7 @@
 }
 
 - (void)useData:(NSDictionary *)dic {
-    UIImageView *img = (UIImageView *)[self.view viewWithTag:10];
+    UIImageView *img = (UIImageView *)[self.view viewWithTag:kCashImgTag];
     if (img.highlighted) {
         self.tabBarController.selectedIndex = 1;
 
@@ -415,36 +417,59 @@
         }];
     }
     else {
-        NSMutableDictionary *tmpDic = [self creatRequestDic];
-        [tmpDic setObject:[dic objectForKey:@"orderNumber"] forKey:@"orderNumber"];
-        
-        NSString *url = [NSString stringWithFormat:@"%@/order/pay", kSERVE_URL];
-        if (_gift) {
-            url = [NSString stringWithFormat:@"%@/gift-order/pay", kSERVE_URL];
+        switch (currentType) {
+            case PayTypeWXPay:
+            {
+                NSLog(@"微信pay");
+            }
+                break;
+            case PayTypeALiPay:
+            {
+                NSLog(@"阿里pay");
+            }
+                break;
+            case PayTypeYeePay:
+            {
+                NSLog(@"易宝pay");
+            }
+                break;
+            default:
+            {
+                //现金支付或优惠券
+                NSMutableDictionary *tmpDic = [self creatRequestDic];
+                [tmpDic setObject:[dic objectForKey:@"orderNumber"] forKey:@"orderNumber"];
+                
+                NSString *url = [NSString stringWithFormat:@"%@/order/pay", kSERVE_URL];
+                if (_gift) {
+                    url = [NSString stringWithFormat:@"%@/gift-order/pay", kSERVE_URL];
+                }
+                
+                AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+                manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+                [manager POST:url parameters:tmpDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    DLog(@"JSON: %@", responseObject);
+                    NSDictionary *tDic = [NSDictionary dictionaryWithDictionary:responseObject];
+                    if ([[tDic objectForKey:@"MZCode"] intValue] != 0) {
+                        [SVProgressHUD showErrorWithStatus:[tDic objectForKey:@"message"]];
+                    }
+                    else {
+                        self.tabBarController.selectedIndex = 1;
+                        [self.navigationController popToRootViewControllerAnimated:YES];
+                        [SVProgressHUD showSuccessWithStatus:@"下单成功"];
+                    }
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    DLog(@"error:%@",error);
+                    [SVProgressHUD showErrorWithStatus:@"加载失败，请重试"];
+                }];
+            }
+                break;
         }
-
-        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-        [manager POST:url parameters:tmpDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            DLog(@"JSON: %@", responseObject);
-            NSDictionary *tDic = [NSDictionary dictionaryWithDictionary:responseObject];
-            if ([[tDic objectForKey:@"MZCode"] intValue] != 0) {
-                [SVProgressHUD showErrorWithStatus:[tDic objectForKey:@"message"]];
-            }
-            else {
-                self.tabBarController.selectedIndex = 1;
-                [self.navigationController popToRootViewControllerAnimated:YES];
-                [SVProgressHUD showSuccessWithStatus:@"下单成功"];
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            DLog(@"error:%@",error);
-            [SVProgressHUD showErrorWithStatus:@"加载失败，请重试"];
-        }];
+       
     }
 }
 
 - (void)orderNumPay {
-    UIImageView *img = (UIImageView *)[self.view viewWithTag:10];
+    UIImageView *img = (UIImageView *)[self.view viewWithTag:kCashImgTag];
     if (img.highlighted) {
         self.tabBarController.selectedIndex = 1;
         [self.navigationController popToRootViewControllerAnimated:YES];
