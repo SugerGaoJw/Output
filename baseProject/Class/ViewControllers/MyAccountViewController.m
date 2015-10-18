@@ -10,6 +10,8 @@
 #import "ChangePwdViewController.h"
 #import "ChangePhoneViewController.h"
 #import "MyAddrViewController.h"
+#import "ChargeViewController.h"
+#import "PointViewController.h"
 
 //action
 #define KSendAddress @"送餐地址"
@@ -50,6 +52,7 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - static label
+//处理 cell right label
 - (void)handlerLabelAtIndexPath:(NSIndexPath *)indexPath
                   WithSuperView:(UIView *)superView {
     
@@ -65,11 +68,13 @@
         label =  [self ptdLabelAddSuperView:superView];
         label.text = [NSString stringWithFormat:@"%@ 元",self.balance];
         label.textColor = [UIColor redColor];
+        [self modifiedframe:label WithHorizontal:-10];
         
     }else if ([title isEqualToString:KIntegral]) {  //积分明细
         label =  [self ptdLabelAddSuperView:superView];
         label.text = [NSString stringWithFormat:@"%@ 分",self.integral];
         label.textColor = [UIColor redColor];
+        [self modifiedframe:label WithHorizontal:-10];
     }
 }
 
@@ -84,6 +89,14 @@
     return lbl;
 }
 
+- (void)modifiedframe:(UILabel *)label WithHorizontal:(CGFloat)h {
+    
+    CGRect rct = label.frame;
+    CGRect newRct = CGRectMake(rct.origin.x + h,
+                               rct.origin.y, CGRectGetWidth(rct),
+                               CGRectGetHeight(rct));
+    label.frame = newRct;
+}
 
 #pragma mark - tableView data source
 
@@ -111,7 +124,9 @@
     // cell UITableViewCellAccessoryDisclosureIndicator
     if ([title isEqualToString:KModifiedPwd]
         ||[title isEqualToString:KSendAddress]
-        ||[title isEqualToString:KModifiedPwd]){
+        ||[title isEqualToString:KModifiedPwd]
+        ||[title isEqualToString:KBanlance]
+        ||[title isEqualToString:KIntegral]){
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }else{
         
@@ -141,10 +156,20 @@
     
     }else if ([title isEqualToString:KModifiedPwd]) { //修改密码
         ChangePwdViewController *vc = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
-        vc.paymentPwd = YES;
         [self.navigationController pushViewController:vc animated:YES];
         
-    }else if ([title isEqualToString:KSignOut]) {
+    }else if ([title isEqualToString:KBanlance]) { //充值界面
+        
+        ChargeViewController *vc = [[ChargeViewController alloc] initWithNibName:@"ChargeViewController" bundle:nil];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    
+    }else if ([title isEqualToString:KIntegral] ) { //积分
+        PointViewController *vc = [[PointViewController alloc] initWithNibName:@"PointViewController" bundle:nil];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+
+    }else if ([title isEqualToString:KSignOut]) { //退出当前账户
         [self exit];
     }
     
@@ -161,7 +186,7 @@
             ChangePwdViewController *vc = [[ChangePwdViewController alloc] initWithNibName:@"ChangePwdViewController" bundle:nil];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        else if (row == 2) {
+        else if (row == 2) { 
             ChangePhoneViewController *vc = [[ChangePhoneViewController alloc] initWithNibName:@"ChangePhoneViewController" bundle:nil];
             [self.navigationController pushViewController:vc animated:YES];
         }
