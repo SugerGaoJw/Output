@@ -214,6 +214,13 @@
     _messageTextView.layer.borderColor = [UIColor lightTextColor].CGColor;
     _messageTextView.layer.cornerRadius = 5.f;
     _messageTextView.layer.masksToBounds = YES;
+    
+    //iphone4s
+    if (__MainScreen_Height <= 640) {
+        CGRect orgianlRect = _messageTextView.frame;
+        CGRect newRect = CGRectMake(orgianlRect.origin.x, orgianlRect.origin.y, CGRectGetWidth(orgianlRect), CGRectGetHeight(orgianlRect) - 10.f);
+        _messageTextView.frame = newRect;
+    }
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {

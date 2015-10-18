@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B30a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -137,16 +137,6 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" textAlignment="natural" id="e8i-OY-U87">
-                            <rect key="frame" x="10" y="310" width="302" height="61"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="nnM-FL-u35"/>
-                            </connections>
-                        </textView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aEQ-So-9nv">
                             <rect key="frame" x="16" y="513" width="272" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
@@ -200,7 +190,7 @@
                             <state key="selected" image="04_4-评价选中Check.png"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Bz-Cg-Dbg" userLabel="CheckBox0">
-                            <rect key="frame" x="8" y="102" width="296" height="36.5"/>
+                            <rect key="frame" x="8" y="102" width="296" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <connections>
@@ -208,7 +198,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CqI-ki-x54" userLabel="CheckBox1">
-                            <rect key="frame" x="8" y="154" width="296" height="36.5"/>
+                            <rect key="frame" x="8" y="154" width="296" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <connections>
@@ -216,7 +206,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CYJ-5j-fkr" userLabel="CheckBox2">
-                            <rect key="frame" x="8" y="202" width="296" height="36.5"/>
+                            <rect key="frame" x="8" y="202" width="296" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <connections>
@@ -224,13 +214,23 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uUI-1m-9s8" userLabel="CheckBox3">
-                            <rect key="frame" x="8" y="250" width="296" height="36.5"/>
+                            <rect key="frame" x="8" y="250" width="296" height="37"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <animations/>
                             <connections>
                                 <action selector="calbakRatingBarBySel:" destination="-1" eventType="touchUpInside" id="Epn-1i-d3N"/>
                             </connections>
                         </button>
+                        <textView clipsSubviews="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="white" textAlignment="natural" id="e8i-OY-U87">
+                            <rect key="frame" x="8" y="301" width="302" height="61"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="nnM-FL-u35"/>
+                            </connections>
+                        </textView>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
@@ -245,7 +245,7 @@
         <image name="03_7-付款_选中按钮常态.png" width="15" height="15"/>
         <image name="04_4-评价_评价按钮常态.png" width="272" height="42"/>
         <image name="04_4-评价_评价按钮点击态.png" width="272" height="42"/>
-        <image name="04_4-评价选中Check.png" width="320" height="50"/>
+        <image name="04_4-评价选中Check.png" width="16" height="16"/>
         <image name="line.png" width="1" height="1"/>
     </resources>
 </document>
