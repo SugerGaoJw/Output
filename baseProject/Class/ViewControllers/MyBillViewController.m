@@ -9,25 +9,39 @@
 #import "MyBillViewController.h"
 #import "MyBillTableViewCell.h"
 
-@interface MyBillViewController ()
-
+@interface MyBillViewController () {
+    
+    __weak IBOutlet UIButton *_billProcessButton;//进行中
+    __weak IBOutlet UIButton *_billAllButton; //全部
+    __weak NSMutableArray* _billArray;
+}
+@property (nonatomic,strong)NSMutableArray* billAllArray; //进行中
+@property (nonatomic,strong)NSMutableArray* billProcessBillArray; //全部
 @end
 
 @implementation MyBillViewController
+
+g_lazyload_func(billAllArray, NSMutableArray)
+g_lazyload_func(billProcessBillArray, NSMutableArray)
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"我的账单";
-    
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.refreshTableView = [[CWRefreshTableView alloc] initWithTableView:_tableView pullDirection:CWRefreshTableViewDirectionUp];
     self.refreshTableView.delegate = self;
+    _billArray = self.billAllArray;
+    
     [self getData];
 
     _tableView.tableFooterView = [UIView new];
+   
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,7 +60,7 @@
 */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.count;
+    return _billArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -61,7 +75,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor whiteColor];
     }
-    cell.dataDic = [self.dataSource objectAtIndex:indexPath.row];
+    cell.dataDic = [_billArray objectAtIndex:indexPath.row];
     return cell;
 }
 
@@ -69,6 +83,64 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+#pragma mark - Bill Button Action
+//选择section button 点击事件
+- (IBAction)chooseBillButtonAction:(id)sender {
+    
+    BOOL isBillAll = [sender isEqual:_billAllButton];
+    [_billAllButton setSelected:isBillAll];
+    [_billProcessButton setSelected:!isBillAll];
+    
+    if (isBillAll) {
+        _billArray = self.billAllArray;
+        
+    }else{
+        _billArray = self.billProcessBillArray;
+    }
+    
+    [_tableView reloadData];
+}
+
+
+//通过点击 筛选订单状态通过枚举
+- (void)siftOutBillStateFormDataSource:(NSArray *)dataSource CompletedBlock:(void(^)())block {
+    
+    [self.billProcessBillArray  removeAllObjects];
+    [self.billAllArray removeAllObjects];
+    
+    __weak typeof(self) wself = self;
+    __block  NSMutableArray* array = nil;
+    __block NSString* flagStr = nil;
+    __block  NSDictionary* dic = nil;
+    
+    //for - loop
+    [dataSource enumerateObjectsUsingBlock:^(id   obj, NSUInteger idx, BOOL *  stop) {
+        /*
+        dic = (NSDictionary *)obj;
+        flagStr = [dic objectForKey:@"couponType"];
+        
+        if ([flagStr isEqualToString:@"进行中"]) {
+            array = wself.billProcessBillArray;
+            
+        }else if ([flagStr isEqualToString:@"全部"]) {
+            array = wself.billAllArray;
+            
+        }else{
+            *stop = YES;
+            DLog(@"sorry,don't this is %@",[dic objectForKey:@"couponType"]);
+            return ;
+        }*/
+        /** －－－－－－－－DEBUG －－－－－－－－ **/
+        array = wself.billAllArray;
+        /** －－－－－－－－DEBUG －－－－－－－－ **/
+
+        [array addObject:obj];
+    }];
+    
+    //completed
+    if (block)  block();
+}
+
 
 #pragma mark - scrollView delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -131,6 +203,7 @@
 }
 
 - (void)useData:(NSDictionary *)dic {
+    
     if (self.refreshTableView.currentPageIndex == 1) {
         [self.dataSource removeAllObjects];
     }
@@ -144,7 +217,11 @@
         self.refreshTableView.totalPage++;
     }
     
-    [_tableView reloadData];
+    //筛选订单状态
+    [self siftOutBillStateFormDataSource:self.dataSource CompletedBlock:^{
+          [_tableView reloadData];
+    }];
+    
     
     NSDictionary *statistics = [dic objectForKey:@"statistics"];
     NSString *income = [NSString stringWithFormat:@"%@", [statistics objectForKey:@"income"]];
