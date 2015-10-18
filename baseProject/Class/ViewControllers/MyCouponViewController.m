@@ -9,7 +9,18 @@
 #import "MyCouponViewController.h"
 #import "MyCouponTableViewCell.h"
 
-@interface MyCouponViewController ()
+@interface MyCouponViewController (){
+    
+    //    折扣劵
+    __weak IBOutlet UIButton *_saleOffButton;
+    //    抵用劵
+    __weak IBOutlet UIButton *_discountButton;
+    
+    __weak NSMutableArray* _couponArray;
+    
+}
+@property (nonatomic,strong)NSMutableArray* saleOffCouponArray;
+@property (nonatomic,strong)NSMutableArray* discountCouponArray;
 
 @end
 
@@ -20,6 +31,8 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"我的优惠券";
+    _couponArray = self.saleOffCouponArray;
+    
     
     self.refreshTableView = [[CWRefreshTableView alloc] initWithTableView:_tableView pullDirection:CWRefreshTableViewDirectionAll];
     self.refreshTableView.delegate = self;
@@ -32,17 +45,17 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataSource.count;
+    return _couponArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -57,20 +70,73 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = [UIColor clearColor];
     }
-    cell.dataDic = [self.dataSource objectAtIndex:indexPath.row];
+    cell.dataDic = [_couponArray objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSDictionary* dic =  [self.dataSource objectAtIndex:indexPath.row];
+    NSDictionary* dic =  [_couponArray objectAtIndex:indexPath.row];
     [self handlerCalbakCouponWithDic:dic];
-  
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - Coupon Button Action
+- (IBAction)chooseCouponButtonAction:(UIButton *)sender {
+    
+    BOOL isSel = [sender isEqual:_saleOffButton];
+    [_saleOffButton setSelected:isSel];
+    [_discountButton setSelected:!isSel];
+    
+    if (isSel) {
+        _couponArray = self.saleOffCouponArray;
+        
+    }else{
+        _couponArray = self.discountCouponArray;
+    }
+    
+    [_tableView reloadData];
+}
+//通过点击 筛选优惠劵通过枚举
+- (void)siftOutCouponTypeFormDataSource:(NSArray *)dataSource CompletedBlock:(void(^)())block {
+    
+    [self.discountCouponArray  removeAllObjects];
+    [self.saleOffCouponArray removeAllObjects];
+    
+    __weak typeof(self) wself = self;
+     __block  NSDictionary* dic = nil;
+     __block  NSMutableArray* array = nil;
+    __block NSString* flagStr = nil;
+    
+    //for - loop
+    [dataSource enumerateObjectsUsingBlock:^(id   obj, NSUInteger idx, BOOL *  stop) {
+            dic = (NSDictionary *)obj;
+            flagStr = [dic objectForKey:@"couponType"];
+            
+            if ([flagStr isEqualToString:@"折扣"]) {
+                array = wself.saleOffCouponArray;
+                
+            }else if ([flagStr isEqualToString:@"抵用"]) {
+                array = wself.discountCouponArray;
+                
+            }else{
+                *stop = YES;
+                DLog(@"sorry,don't this is %@",[dic objectForKey:@"couponType"]);
+                return ;
+            }
+            
+            [array addObject:obj];
+    }];
+    
+    //completed
+    if (block)  block();
+}
+
+
 #pragma mark - CallBack Coupon
+//处理点击 优惠劵cell 事件
 - (void)handlerCalbakCouponWithDic:(NSDictionary *)dic {
     
     ENCouponType type = -1;
@@ -160,8 +226,14 @@
     if (self.pageTotal % self.pageSize != 0) {
         self.refreshTableView.totalPage++;
     }
-    [_tableView reloadData];
+    
+    
+    [self siftOutCouponTypeFormDataSource:self.dataSource CompletedBlock:^{
+        [_tableView reloadData];
+    }];
 }
-
+#pragma mark - lozd load
+g_lazyload_func(discountCouponArray, NSMutableArray)
+g_lazyload_func(saleOffCouponArray, NSMutableArray)
 
 @end

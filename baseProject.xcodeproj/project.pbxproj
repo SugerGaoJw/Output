@@ -1303,6 +1303,7 @@
 		9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_2-arrow@3x.png"; sourceTree = "<group>"; };
 		9BE424CC1BCF8D4800174C33 /* 03_7-劵@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-劵@3x.png"; sourceTree = "<group>"; };
 		AF1A39AD206EAE29C573282E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDC34E201BD32BA5003A8C4C /* NSPropertyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSPropertyMacro.h; sourceTree = "<group>"; };
 		FEC24E0F1BD245E500E73D12 /* RCDraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDraggableButton.h; sourceTree = "<group>"; };
 		FEC24E101BD245E500E73D12 /* RCDraggableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDraggableButton.m; sourceTree = "<group>"; };
 		FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-摇一摇_分享@2x.png"; sourceTree = "<group>"; };
@@ -1414,6 +1415,7 @@
 				0A72A1691AB56B7E00ADE766 /* Place.m */,
 				0AF8D4DB1AC11D6300B282A5 /* NSObject+HXAddtions.h */,
 				0AF8D4DC1AC11D6300B282A5 /* NSObject+HXAddtions.m */,
+				CDC34E201BD32BA5003A8C4C /* NSPropertyMacro.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";

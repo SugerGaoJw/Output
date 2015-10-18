@@ -19,6 +19,7 @@
 #import "head.h"
 #import "shareFun.h"
 #import "PublicInstance.h"
+#import "NSPropertyMacro.h"
 #import "BaseViewController.h"
 
 #import "NSNull+OVNatural.h"
