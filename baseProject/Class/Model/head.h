@@ -14,6 +14,9 @@
 #define DEBUG_ENVIRONMENT 1
 #endif
 
+#define CUSTOMER_NUMBER @"10012474714"
+#define KEY_MAC @"8SB55mW82K974k684Qfy8Ywa2QE6u7gX6cII7cR51ld5S2X3jJB5Av05r4Dp"
+#define KEY_AES [KEY_MAC substringWithRange:NSMakeRange(0, 16)]
 #define kSuccessCode    @"0"
 
 #define kNavBarHeight   44

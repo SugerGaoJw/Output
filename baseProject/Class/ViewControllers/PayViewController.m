@@ -36,7 +36,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"支付";
-    
     _priceLbl.text = [NSString stringWithFormat:@"¥ %.1f 元" , [_price floatValue]];
     
     _cntTotalPrice.text = [NSString stringWithFormat:@"共计： %.1f 元" , [_price floatValue]];

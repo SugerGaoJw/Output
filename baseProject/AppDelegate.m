@@ -42,7 +42,7 @@
     [MobClick startWithAppkey:@"54f90dbdfd98c5f6d30007de"];
     [MobClick checkUpdate];
     [ZBarReaderView class];
-    [self setUpSusBtn];
+//    [self setUpSusBtn];
     [self getLoginState];
     [self customizeInterface];
     [self setupShareSDK];

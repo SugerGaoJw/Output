@@ -578,6 +578,7 @@
 		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; };
 		9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */; };
 		9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */; };
+		FEB4806A1BD4E2CA004B802E /* ZUMD5Crypt.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB480691BD4E2CA004B802E /* ZUMD5Crypt.m */; };
 		FEC24E111BD245E500E73D12 /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC24E101BD245E500E73D12 /* RCDraggableButton.m */; };
 		FED4CBBD1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */; };
 		FED4CBBF1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBE1BCFA39C003AA7F1 /* 06-摇一摇_分享@3x.png */; };
@@ -1304,6 +1305,8 @@
 		9BE424CC1BCF8D4800174C33 /* 03_7-劵@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-劵@3x.png"; sourceTree = "<group>"; };
 		AF1A39AD206EAE29C573282E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC34E201BD32BA5003A8C4C /* NSPropertyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSPropertyMacro.h; sourceTree = "<group>"; };
+		FEB480681BD4E2CA004B802E /* ZUMD5Crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUMD5Crypt.h; sourceTree = "<group>"; };
+		FEB480691BD4E2CA004B802E /* ZUMD5Crypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZUMD5Crypt.m; sourceTree = "<group>"; };
 		FEC24E0F1BD245E500E73D12 /* RCDraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDraggableButton.h; sourceTree = "<group>"; };
 		FEC24E101BD245E500E73D12 /* RCDraggableButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCDraggableButton.m; sourceTree = "<group>"; };
 		FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-摇一摇_分享@2x.png"; sourceTree = "<group>"; };
@@ -1416,6 +1419,8 @@
 				0AF8D4DB1AC11D6300B282A5 /* NSObject+HXAddtions.h */,
 				0AF8D4DC1AC11D6300B282A5 /* NSObject+HXAddtions.m */,
 				CDC34E201BD32BA5003A8C4C /* NSPropertyMacro.h */,
+				FEB480681BD4E2CA004B802E /* ZUMD5Crypt.h */,
+				FEB480691BD4E2CA004B802E /* ZUMD5Crypt.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3037,6 +3042,7 @@
 				0A145BA91A36E92D007605EA /* BaseViewController.m in Sources */,
 				0AA895381B25D13500BC4B61 /* ACEExpandableTextCell.m in Sources */,
 				0ADE41891A67DDB7007124CB /* UIViewController+CustomPopupViewController.m in Sources */,
+				FEB4806A1BD4E2CA004B802E /* ZUMD5Crypt.m in Sources */,
 				0A72A16A1AB56B7E00ADE766 /* Place.m in Sources */,
 				0ADE41651A67D365007124CB /* BingPhoneViewController.m in Sources */,
 				0ADE416A1A67D6B9007124CB /* YouHuiViewController.m in Sources */,
