@@ -360,7 +360,10 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
             cell.detailTextLabel.numberOfLines = 0;
             cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
-            cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+            cell.detailTextLabel.textColor = [UIColor whiteColor];
+            cell.textLabel.textColor =  [UIColor whiteColor];
+            cell.backgroundColor = [UIColor redColor];
+            
             cell.imageView.image = [UIImage imageNamed:@"03_2-矢量智能对象.png"];
 
         }
