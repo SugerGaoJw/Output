@@ -10,11 +10,12 @@
 /*!
  *  送餐地址管理类
  */
+typedef void(^DidSelCellBlock)(NSDictionary * cellDataSource);
 @interface MyAddrViewController : BaseViewController <CWRefreshTableViewDelegate> {
     
 }
 
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
+@property (copy ,nonatomic)DidSelCellBlock blkDidSelCell;
 @end

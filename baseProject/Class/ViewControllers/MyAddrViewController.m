@@ -131,9 +131,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
- 
+  
+    NSDictionary* cellDataSource = [self.dataSource objectAtIndex:indexPath.row];
+    
+    if (self.blkDidSelCell) { //选择block ，则执行block ，不再执行之后的代码
+        self.blkDidSelCell(cellDataSource);
+        self.blkDidSelCell = nil;
+        [self.navigationController popViewControllerAnimated:YES];
+        return;
+    }
+    
+    
     NewAddrViewController *vc = [[NewAddrViewController alloc] initWithNibName:@"NewAddrViewController" bundle:nil];
-    vc.dataDic = [self.dataSource objectAtIndex:indexPath.row];
+    vc.dataDic = cellDataSource;
     vc.update = YES;
     vc.block = ^() {
         [self.refreshTableView reload];

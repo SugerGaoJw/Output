@@ -20,7 +20,6 @@
 @property (nonatomic, assign) int pageTotal;
 
 @property (nonatomic, copy) NSMutableArray *dataSource;
-
 - (NSMutableDictionary *)creatRequestDic;
 
 - (void)setLbtnNormal;

@@ -85,6 +85,8 @@
     }
     [_numDic release];
     [_selectArr release];
+    [_defaultDic release];
+    
     [super dealloc];
 }
 
@@ -113,12 +115,10 @@
         return;
     }
     NewAddrViewController *vc = [[NewAddrViewController alloc] initWithNibName:@"NewAddrViewController" bundle:nil];
-    vc.dataDic = _defaultDic;
+    vc.dataDic = _defaultDic.copy;
     vc.update = YES;
-//    vc.block = ^() {
-//        [self requestNetAddress];
-//    };
     [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 #pragma mark - 显示当前的默认地址
@@ -213,6 +213,9 @@
     }
     vc.dataSource = self.selectArr;
     vc.numDic = self.numDic;
+    if (_defaultDic != nil) {
+        vc.defaultAddressDictionary = _defaultDic.copy;
+    }
     [self.navigationController pushViewController:vc animated:YES];
     [vc release];
 }

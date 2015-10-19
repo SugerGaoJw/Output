@@ -10,6 +10,7 @@
 #import "NewAddrViewController.h"
 #import "OrderTableViewCell.h"
 #import "PayViewController.h"
+#import "MyAddrViewController.h"
 
 @interface ConfirmOrderViewController () {
     NSInteger _selectAddrInt;
@@ -326,10 +327,11 @@
         UILabel *lbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 280, 1)];
         lbl.numberOfLines = 0;
         lbl.font = [UIFont systemFontOfSize:14];
-        NSString *allAddress = [[_addrArr objectAtIndex:indexPath.row] objectForKey:@"allAddress"];
+        NSString *allAddress = [self.defaultAddressDictionary objectForKey:@"allAddress"];
+//        [_addrArr objectAtIndex:indexPath.row]
         lbl.text = [allAddress stringByReplacingOccurrencesOfString:@" " withString:@""];
-        float h = [shareFun heightOfLabel:lbl];
-        return h+40.0f;
+//        float h = [shareFun heightOfLabel:lbl];
+        return 60.f;
     }
     else if (tableView == _tableView1){
         return 115;
@@ -341,7 +343,7 @@
 
 - (NSInteger)tableView:(UITableView *) tableView numberOfRowsInSection:(NSInteger)section{
     if (tableView == _tableView0) {
-        return _addrArr.count;
+        return 1;// _addrArr.count;
     }
     else if (tableView == _tableView1){
         return self.dataSource.count;
@@ -359,14 +361,16 @@
             cell.detailTextLabel.numberOfLines = 0;
             cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
             cell.detailTextLabel.textColor = [UIColor darkGrayColor];
+            cell.imageView.image = [UIImage imageNamed:@"03_2-矢量智能对象.png"];
+
         }
-        NSDictionary *dic = [_addrArr objectAtIndex:row];
+        NSDictionary *dic = self.defaultAddressDictionary;
         cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", [dic objectForKey:@"name"], [dic objectForKey:@"phone"]];
         NSString *allAddress = [dic objectForKey:@"allAddress"];
         cell.detailTextLabel.text = [allAddress stringByReplacingOccurrencesOfString:@" " withString:@""];
         
         if (row == _selectAddrInt) {
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         else {
             cell.accessoryType = UITableViewCellAccessoryNone;
@@ -442,14 +446,26 @@
     
     NSInteger row = indexPath.row;
     if (tableView == _tableView0) {
-        if (row == _selectAddrInt) {
+        /*if (row == _selectAddrInt) {
             return;
         }
         else {
             NSIndexPath *oldIndexPath = [NSIndexPath indexPathForRow:_selectAddrInt inSection:0];
             _selectAddrInt = row;
             [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, oldIndexPath, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
+        }*/
+        
+        MyAddrViewController *vc = [[MyAddrViewController alloc] initWithNibName:@"MyAddrViewController" bundle:nil];
+        vc.blkDidSelCell = ^(NSDictionary* cellDataSource) {
+            _defaultAddressDictionary = cellDataSource.copy;
+            [_tableView0 reloadData];
+        };
+        vc.hidesBottomBarWhenPushed = YES;
+    
+        [self.navigationController pushViewController:vc animated:YES];
+        
+        
+        
     }
     else if (tableView == _popTableView) {
         [_couponDic setObject:[_couponArr objectAtIndex:row] forKey:[NSString stringWithFormat:@"%d", _selectCoupon]];

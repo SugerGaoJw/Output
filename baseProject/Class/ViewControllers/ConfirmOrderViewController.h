@@ -29,7 +29,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *popTableView;
 
 @property (nonatomic, copy) NSMutableDictionary *numDic;
-
+@property (nonatomic, copy) NSDictionary *defaultAddressDictionary;
 //是否从礼品兑换进入
 @property (nonatomic, assign) BOOL gift;
 
