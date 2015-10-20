@@ -578,6 +578,8 @@
 		9BD80ED11BCF374800606CD6 /* 03_2-矢量智能对象@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED01BCF374800606CD6 /* 03_2-矢量智能对象@3x.png */; };
 		9BD80ED31BCF37C600606CD6 /* 03_2-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED21BCF37C600606CD6 /* 03_2-arrow@2x.png */; };
 		9BD80ED51BCF37E600606CD6 /* 03_2-arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BD80ED41BCF37E600606CD6 /* 03_2-arrow@3x.png */; };
+		FEAA5FEA1BD537D30090E1B8 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAA5FE91BD537D30090E1B8 /* NSData+AES256.m */; };
+		FEAA5FED1BD5384D0090E1B8 /* NSString+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = FEAA5FEC1BD5384D0090E1B8 /* NSString+AES256.m */; };
 		FEB4806A1BD4E2CA004B802E /* ZUMD5Crypt.m in Sources */ = {isa = PBXBuildFile; fileRef = FEB480691BD4E2CA004B802E /* ZUMD5Crypt.m */; };
 		FEC24E111BD245E500E73D12 /* RCDraggableButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FEC24E101BD245E500E73D12 /* RCDraggableButton.m */; };
 		FED4CBBD1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FED4CBBC1BCFA333003AA7F1 /* 06-摇一摇_分享@2x.png */; };
@@ -1305,6 +1307,10 @@
 		9BE424CC1BCF8D4800174C33 /* 03_7-劵@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "03_7-劵@3x.png"; sourceTree = "<group>"; };
 		AF1A39AD206EAE29C573282E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDC34E201BD32BA5003A8C4C /* NSPropertyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSPropertyMacro.h; sourceTree = "<group>"; };
+		FEAA5FE81BD537D30090E1B8 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES256.h"; sourceTree = "<group>"; };
+		FEAA5FE91BD537D30090E1B8 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+AES256.m"; sourceTree = "<group>"; };
+		FEAA5FEB1BD5384D0090E1B8 /* NSString+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+AES256.h"; sourceTree = "<group>"; };
+		FEAA5FEC1BD5384D0090E1B8 /* NSString+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+AES256.m"; sourceTree = "<group>"; };
 		FEB480681BD4E2CA004B802E /* ZUMD5Crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZUMD5Crypt.h; sourceTree = "<group>"; };
 		FEB480691BD4E2CA004B802E /* ZUMD5Crypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZUMD5Crypt.m; sourceTree = "<group>"; };
 		FEC24E0F1BD245E500E73D12 /* RCDraggableButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDraggableButton.h; sourceTree = "<group>"; };
@@ -1421,6 +1427,10 @@
 				CDC34E201BD32BA5003A8C4C /* NSPropertyMacro.h */,
 				FEB480681BD4E2CA004B802E /* ZUMD5Crypt.h */,
 				FEB480691BD4E2CA004B802E /* ZUMD5Crypt.m */,
+				FEAA5FE81BD537D30090E1B8 /* NSData+AES256.h */,
+				FEAA5FE91BD537D30090E1B8 /* NSData+AES256.m */,
+				FEAA5FEB1BD5384D0090E1B8 /* NSString+AES256.h */,
+				FEAA5FEC1BD5384D0090E1B8 /* NSString+AES256.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3019,6 +3029,7 @@
 				0ADE40FB1A663BF8007124CB /* MyCouponViewController.m in Sources */,
 				0A861BAA1A4E53040003D9EC /* InteractivePopNavigationController.m in Sources */,
 				0A145BB51A36F0D5007605EA /* CWRefreshTableView.m in Sources */,
+				FEAA5FED1BD5384D0090E1B8 /* NSString+AES256.m in Sources */,
 				0ADE41701A67D951007124CB /* GiftViewController.m in Sources */,
 				0A70DE1F1A36CBC3000FE0F9 /* AppDelegate.m in Sources */,
 				0A13E1AE1A84F383002A7BE6 /* MyOrderDetailTableViewCell.m in Sources */,
@@ -3030,6 +3041,7 @@
 				0A13E1851A84EEBE002A7BE6 /* MyOrderDetailViewController.m in Sources */,
 				0AB5C95E1ABD42B2002EF075 /* PayViewController.m in Sources */,
 				0A4ED8851A65166100E5CED6 /* MessageViewController.m in Sources */,
+				FEAA5FEA1BD537D30090E1B8 /* NSData+AES256.m in Sources */,
 				0A13E1671A84E972002A7BE6 /* OrderDetailViewController.m in Sources */,
 				0AAF700A1ABABC250022FA3C /* ConfirmOrderViewController.m in Sources */,
 				0A13E1B31A8500FA002A7BE6 /* EvaluateViewController.m in Sources */,
